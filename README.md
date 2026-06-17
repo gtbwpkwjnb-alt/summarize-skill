@@ -168,14 +168,52 @@ Even without explicit trigger, the skill proactively suggests running `/总结` 
 
 ## Installation / 安装
 
-1. Clone to your ZCode skills directory:
+**最短路径安装（推荐）**：
 
 ```bash
-git clone https://github.com/zcode-zcode/summarize-skill.git \
-  ~/.zcode/skills/summarize
+git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.zcode/skills/smrz
 ```
 
-2. The skill auto-registers. Trigger with `/总结`.
+> 目录名 `smrz` 是 summarize 的缩写，ZCode 按 `SKILL.md` 的 `name` 字段识别技能，目录名不影响功能。
+
+**完整路径**（与其他技能命名风格一致）：
+
+```bash
+git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.zcode/skills/summarize
+```
+
+安装后输入 `/总结` 即可触发。
+
+---
+
+## Distribution / 分发与推广
+
+### 已接入渠道
+
+| 渠道 | 状态 | 链接 |
+|------|:--:|------|
+| GitHub Releases | ✅ | [v3.0.0](https://github.com/gtbwpkwjnb-alt/summarize-skill/releases/tag/v3.0.0) |
+| SSH Clone | ✅ | `git@github.com:gtbwpkwjnb-alt/summarize-skill.git` |
+
+### 推荐推广渠道
+
+| 渠道 | 类型 | 操作 |
+|------|------|------|
+| **[daymade/claude-code-skills](https://github.com/daymade/claude-code-skills)** | CCPM 市场（⭐1.2k） | 提交 PR 加入索引，用户通过 `/plugin marketplace add` 安装 |
+| **[majiayu000/claude-skill-registry](https://github.com/majiayu000/claude-skill-registry)** | 技能搜索引擎 + CLI `sk` | 提交 JSON 索引条目，支持关键词搜索发现 |
+| **[Anthropic 社区插件](https://github.com/anthropics/claude-plugins-community)** | 官方社区市场 | 提交至 `clau.de/plugin-directory-submission` |
+| **[netresearch/claude-code-marketplace](https://github.com/netresearch/claude-code-marketplace)** | 社区市场 | 提交 PR 注册技能 |
+
+### 推荐管理工具
+
+| 工具 | 用途 | 安装 |
+|------|------|------|
+| **[sutras](https://github.com/agentskills/sutras)** | 技能脚手架、校验、打包、发布 | `pip install sutras` |
+| **[skillet](https://github.com/joshrotenberg/skillet)** | MCP 原生技能注册中心 + CLI | `cargo install skillet` |
+| **[aigent](https://github.com/wkusnierczyk/aigent)** | 技能校验评分 (0-100) + 格式化 | `cargo install aigent` |
+| **[skills-cli](https://pypi.org/project/skills-cli/)** | 创建、校验、打包、推送到 Anthropic | `pip install skills-cli` |
+
+> 💡 建议优先接入 **CCPM**（daymade/claude-code-skills），用户量最大，安装体验最简。
 
 ---
 
