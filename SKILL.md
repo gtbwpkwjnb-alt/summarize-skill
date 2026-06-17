@@ -1,6 +1,6 @@
 ---
 name: summarize
-description: "Session diagnosis with progress snapshot, cross-project error tracking, experience harvesting, and self-evolving rules. Trigger: /总结. 会话诊断·进度快照·错误追踪·经验收割·自进化规则。"
+description: "Use when sessions exceed 20 rounds, errors accumulate (≥3), or progress needs cross-project archiving. Tracks errors with backtest verification against established behavioral rules. Triggered by /总结. 会话轮次过多(≥20)、错误累积(≥3)或需跨项目归档进度时使用，含回测验证。"
 user-invocable: true
 ---
 
@@ -35,6 +35,27 @@ user-invocable: true
 | `/总结 统计` | ✅ | 统计 + 自进化建议 + 版本更新检查 |
 | `/总结 反馈` | ✅ | 生成 GitHub Issue 模板，一键反馈 |
 | 对话中 "总结一下…" | ❌ | 不触发 |
+
+### When NOT to Use
+
+| 场景 | 原因 |
+|------|------|
+| 会话 <5 轮且无错误 | 无可收割内容，输出空表浪费 token |
+| 纯对话/研究型会话（无工具调用、无文件修改） | 模块3/4 不会产生有价值输出 |
+| `/总结` 出现在代码/文档示例文本中 | 非用户真实意图，不触发 |
+| 同一会话 10 轮内已执行过 `/总结` | 间隔太短，增量不足 |
+
+---
+
+## Quick Reference
+
+| 用户意图 | 命令 | 产出 |
+|---------|------|------|
+| 完整诊断 | `/总结` | 5 模块全量输出 |
+| 浏览历史收割 | `/总结 历史` | 按项目分组的收割索引→选编号看详情 |
+| 查看错误账本 | `/总结 错误` | 全局 + 本项目错误，按频率降序 |
+| 技能自检 | `/总结 统计` | 模块使用统计 + 自进化建议 + 版本检查 |
+| 提交反馈 | `/总结 反馈` | 生成 GitHub Issue 模板 |
 
 ---
 
@@ -206,36 +227,16 @@ harvests/
 ⚠️⚠️⚠️ "{错误类型}" 已 {N} 次（跨 {M} 会话），建议加入对应层级 AGENTS.md
 ```
 
-#### 3.3 收割写入
+#### 3.3 收割写入（6 步）
 
-**Step 1: 确定项目名** — 从当前工作目录提取。
+详见 `references/harvest-workflow.md`。核心步骤：
 
-**Step 2: 写入收割文件**
-
-路径：`harvests/{project}/YYYY-MM-DD-{id}.md`
-格式：6 分区 — `activeContext` `progress` `decisions` `errors` `patterns` `nextSteps`
-详见 `references/harvest-format.md`
-
-**Step 3: 更新错误账本**
-
-- 全局错误 → `harvests/error-ledger.md`
-- 项目错误 → `harvests/{project}/errors.md`（不存在则创建）
-- 更新 `days_clean`、`last_seen`、`verified` 字段
-
-**Step 4: 更新索引** — 追加到 `harvests/index.md`
-
-**Step 5: 确认输出**
-
-```
-✅ 已收割 — {project} 项目
-   文件: harvests/{project}/YYYY-MM-DD-{id}.md
-   全局错误: {N} 条（新增 {M}，高频 ⚠️⚠️⚠️ {H}）
-   项目错误: {N} 条（新增 {M}，高频 ⚠️⚠️⚠️ {H}）
-   标注: {D} 决策 / {E} 错误 / {I} 洞察 / {R} 规则建议
-   回测: {通过} 条规则遵守 / {违反} 条规则违反 / {复发} 条错误复发
-```
-
-**Step 6: 更新自反馈统计** — 追加到 `harvests/_self-stats.md`
+1. **确定项目名** → 从工作目录尾段提取
+2. **写入收割文件** → `harvests/{project}/YYYY-MM-DD-{id}.md`（6 分区格式）
+3. **更新错误账本** → 全局 `error-ledger.md` + 项目 `{project}/errors.md`
+4. **更新索引** → 追加到 `harvests/index.md`
+5. **确认输出** → 显示收割摘要（文件数、错误数、回测结果）
+6. **更新统计** → 追加到 `harvests/_self-stats.md`
 
 ---
 
@@ -359,6 +360,21 @@ harvests/
 
 ---
 
+## Common Mistakes
+
+> Agent 执行 `/总结` 时最常犯的错误。每次执行前自查。
+
+| 错误 | 后果 | 正确做法 |
+|------|------|---------|
+| 跳过模块 2.3 回测验证 | `days_clean` 不更新，错误复发无感知 | 每次必须读取 RULES.md 并逐条比对 |
+| 全局错误写入了项目特定内容 | 污染跨项目账本（如 CC-Switch 问题出现在全局 error-ledger） | 工具/流程类→全局，项目配置/架构→项目 |
+| 收割写入时搞错项目名 | 收割文件写到错误目录（`harvests/wrong-project/`） | Step1 从工作目录尾段提取项目名 |
+| 模块 4 没有触发条件仍输出空表 | 浪费 ~200 token，降低信噪比 | 检查 4 条触发规则，全不满足则输出"无优化建议"一行跳过 |
+| 上下文压缩遗漏关键决策 | 下个会话续接时丢失上下文 | 输出前确认：决策是否已写入模块 5 |
+| 把 `/总结` 当 `/总结 统计` 用 | 跑了全 5 模块但用户只想看统计 | 读触发规则表，选对子命令 |
+
+---
+
 ## 格式原则
 
 - **先结论后过程** — 每个模块先说结果
@@ -371,43 +387,10 @@ harvests/
 
 ## 错误记录字段规范
 
-每条错误在账本中的标准格式：
-
-```markdown
-| 错误类型 | 次数 | 分类 | 作用域 | 首次 | 最近 | days_clean | 避免规则 | 已验证 | 涉及项目 |
-|---------|:---:|:--:|:-----:|------|------|:--------:|---------|:-----:|---------|
-| {类型} | {N} | {CODE} | 全局/项目 | {date} | {date} | {N} | {规则ID} | ✅/❌ | {项目} |
-```
-
-**新增字段说明**：
-- `days_clean`: 自上次出现后连续未再犯的天数（正向激励）
-- `避免规则`: 对应的预防规则 ID，如 `P0-Edit前Read`
-- `已验证`: 该规则是否经回测确认有效
+详见 `references/error-record-spec.md`。核心字段：`错误类型` `次数` `分类` `days_clean` `避免规则` `已验证`。
 
 ---
 
 ## 示例输出
 
-```
-📋 ZCodeProject — 进度快照
-✅ 已完成: 重复技能清理
-🔄 进行中: summarize v3.0 优化
-💡 下一步: 验证新错误分级写入 — 原因: 核心闭环未测试
-📊 会话规模: ~15 轮 | 压力: 🟢
-
-⚠️ 错误诊断 — 本次 2 条（全局 1 / 项目 1）
-| 错误 | 分类 | 作用域 | 次数 | 标记 |
-|------|------|:-----:|:---:|:--:|
-| Edit前未Read | PROC | 全局 | 4 | ⚠️⚠️⚠️ |
-| CC-Switch冲突 | KNOW | 项目 | 1 | 🆕 |
-
-🛡️ 回测:
-✅ "连失2次换方法" — 本次会话遵守，干净天数 3
-⚠️ "Edit前Read" — 本次违反 1 次，干净天数归零
-
-🔧 优化建议:
-- SKILL.md 行数 >300 → 建议拆分 references/ 子文件
-
-✅ 已收割 — harvests/ZCodeProject/2026-06-17-{id}.md
-   全局错误: 10 条 | 项目错误: 2 条 | 回测: 4/5 规则遵守
-```
+详见 `references/example-output.md`。

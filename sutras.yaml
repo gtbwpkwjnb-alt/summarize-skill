@@ -2,11 +2,11 @@
 # https://agentskills.io
 
 name: summarize
-version: "3.0.0"
+version: "3.0.1"
 description: |
-  Session diagnosis with progress snapshot, cross-project error tracking with
-  backtest verification, experience harvesting, and self-evolving rules.
-  Trigger: /总结. 会话诊断·进度快照·错误追踪·经验收割·自进化规则。
+  Use when sessions exceed 20 rounds, errors accumulate (≥3), or progress
+  needs cross-project archiving. Tracks errors with backtest verification
+  against established behavioral rules. Triggered by /总结.
 
 author: ZCode (https://github.com/gtbwpkwjnb-alt)
 license: MIT
@@ -27,17 +27,6 @@ build:
     - install.ps1
     - references/
     - harvests/
-
-eval:
-  framework: manual
-  metrics:
-    - metadata_completeness
-    - instruction_clarity
-    - error_handling
-    - cross_platform
-    - distribution_readiness
-  threshold: 70
-  current_score: 72
 
 distribution:
   tags:
