@@ -32,7 +32,8 @@ user-invocable: true
 | `/总结` | ✅ | 完整诊断（5 模块） |
 | `/总结 历史` | ✅ | 展示收割索引，用户选择查看 |
 | `/总结 错误` | ✅ | 展示错误账本（全局+本项目） |
-| `/总结 统计` | ✅ | 展示技能自身运行统计与自进化建议 |
+| `/总结 统计` | ✅ | 统计 + 自进化建议 + 版本更新检查 |
+| `/总结 反馈` | ✅ | 生成 GitHub Issue 模板，一键反馈 |
 | 对话中 "总结一下…" | ❌ | 不触发 |
 
 ---
@@ -297,7 +298,38 @@ harvests/
 1. 读取 `harvests/_self-stats.md`
 2. 展示累计统计：总运行次数、检测错误、规则建议、平均压缩率
 3. 最近 5 次运行记录
-4. **新增：技能自进化建议** — 哪些模块产出低、哪些维度需增强、建议裁剪什么
+4. 技能自进化建议 — 哪些模块产出低、哪些维度需增强、建议裁剪什么
+5. **🆕 版本检查** — 读取本地 `VERSION` 文件，调用 GitHub API (`https://api.github.com/repos/gtbwpkwjnb-alt/summarize-skill/releases/latest`) 比对，如有新版本提醒升级：
+
+```
+📦 版本检查:
+   当前: v3.0.0 | 最新: v3.1.0 🆕
+   更新: cd ~/.agent-skills/summarize && git pull
+   变更: {changelog摘要}
+```
+
+### `/总结 反馈`
+
+生成 GitHub Issue 模板，用户确认后引导至浏览器提交：
+
+```
+🐛 反馈类型: [Bug] / [建议] / [使用经验]
+
+## 环境
+- 平台: {ZCode/Claude Code/Cursor/...}
+- summarize 版本: {VERSION}
+- 会话轮次: ~{N}
+
+## 描述
+{引导用户填写}
+
+## 期望行为
+{引导用户填写}
+
+---
+📮 提交地址: https://github.com/gtbwpkwjnb-alt/summarize-skill/issues/new
+   请复制以上内容到 Issue 表单提交。
+```
 
 ---
 

@@ -168,60 +168,46 @@ Even without explicit trigger, the skill proactively suggests running `/总结` 
 
 ## Installation / 安装
 
-### 方法一：市场安装（推荐，跨平台通用）
-
-> 🚧 即将上线 CCPM 市场，届时一条命令即可安装：
-> ```
-> /plugin install summarize@daymade/claude-code-skills
-> ```
-
-当前可用的跨平台安装方式：
+### 一键安装（全平台通用）
 
 ```bash
-# 任意平台，一行命令
-git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.zcode-skills/summarize
+curl -sL https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-skill/master/install.sh | bash
 ```
 
-> 目录名任意，AI 按 `SKILL.md` 的 `name: summarize` 字段识别，与路径无关。
+Windows PowerShell:
 
-### 方法二：按平台安装
+```powershell
+iwr https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-skill/master/install.ps1 | iex
+```
 
-| 平台 | 安装路径 |
-|------|---------|
-| **ZCode** | `~/.zcode/skills/summarize` |
-| **Claude Code** | `~/.claude/skills/summarize` |
-| **Cursor** | `~/.cursor/skills/summarize` |
-| **Codex CLI** | `~/.codex/skills/summarize` |
-| **Windsurf** | `~/.windsurf/skills/summarize` |
-| **通用（推荐）** | `~/.zcode-skills/summarize` 或任意路径 |
+> 自动安装到 `~/.agent-skills/summarize/`，兼容所有 AI 编码助手。
+
+### 手动安装
 
 ```bash
-git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git {你的平台路径}
+git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.agent-skills/summarize
 ```
 
-安装后输入 `/总结` 即可触发。
+放在 AI 助手技能目录下即可，输入 `/总结` 触发。
+
+### 更新
+
+```bash
+cd ~/.agent-skills/summarize && git pull
+```
+
+或运行 `/总结 统计` 自动检测 GitHub 新版本。安装后输入 `/总结` 即可触发。
 
 ---
 
-## Distribution / 分发渠道
+## 技能管理 / Skill Management
 
-| 渠道 | 状态 | 安装方式 |
-|------|:--:|------|
-| GitHub Releases | ✅ 已发布 | `git clone` (见上方) |
-| CCPM 市场 (daymade/claude-code-skills) | 🚧 待提交 | `/plugin install summarize` |
-| claude-skill-registry | 🚧 待提交 | `sk install summarize` |
-| Anthropic 社区插件 | 🚧 待提交 | `/plugin marketplace add` |
-
-### 推荐管理工具
-
-| 工具 | 用途 | 安装 |
-|------|------|------|
-| **[sutras](https://github.com/agentskills/sutras)** | 技能脚手架、校验、打包、发布 | `pip install sutras` |
-| **[skillet](https://github.com/joshrotenberg/skillet)** | MCP 原生技能注册中心 + CLI | `cargo install skillet` |
-| **[aigent](https://github.com/wkusnierczyk/aigent)** | 技能校验评分 (0-100) + 格式化 | `cargo install aigent` |
-| **[skills-cli](https://pypi.org/project/skills-cli/)** | 创建、校验、打包、推送到 Anthropic | `pip install skills-cli` |
-
-> 💡 建议优先接入 **CCPM**（daymade/claude-code-skills），用户量最大，安装体验最简。
+| 功能 | 方式 |
+|------|------|
+| 版本更新 | `/总结 统计` 自动比对 GitHub Release，有新版本提醒 |
+| Bug 反馈 | [GitHub Issues](https://github.com/gtbwpkwjnb-alt/summarize-skill/issues) |
+| 使用交流 | [GitHub Discussions](https://github.com/gtbwpkwjnb-alt/summarize-skill/discussions) |
+| 快捷反馈 | `/总结 反馈` 自动生成 issue 模板 |
 
 ---
 
