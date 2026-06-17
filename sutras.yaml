@@ -1,0 +1,55 @@
+# sutras.yaml — summarize skill metadata & configuration
+# https://agentskills.io
+
+name: summarize
+version: "3.0.0"
+description: |
+  Session diagnosis with progress snapshot, cross-project error tracking with
+  backtest verification, experience harvesting, and self-evolving rules.
+  Trigger: /总结. 会话诊断·进度快照·错误追踪·经验收割·自进化规则。
+
+author: ZCode (https://github.com/gtbwpkwjnb-alt)
+license: MIT
+repository: https://github.com/gtbwpkwjnb-alt/summarize-skill
+
+compatibility:
+  platforms: [zcode, claude-code, cursor, codex, windsurf]
+  minVersion: "2.0.0"
+
+build:
+  include:
+    - SKILL.md
+    - README.md
+    - LICENSE
+    - VERSION
+    - RULES.md
+    - install.sh
+    - install.ps1
+    - references/
+    - harvests/
+
+eval:
+  framework: manual
+  metrics:
+    - metadata_completeness
+    - instruction_clarity
+    - error_handling
+    - cross_platform
+    - distribution_readiness
+  threshold: 70
+  current_score: 72
+
+distribution:
+  tags:
+    - diagnostics
+    - error-tracking
+    - session-management
+    - self-evolution
+    - productivity
+  category: developer-tools
+  github:
+    owner: gtbwpkwjnb-alt
+    repo: summarize-skill
+  install:
+    bash: "curl -sL https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-skill/master/install.sh | bash"
+    powershell: "iwr https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-skill/master/install.ps1 | iex"
