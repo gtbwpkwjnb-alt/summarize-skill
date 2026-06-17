@@ -168,41 +168,49 @@ Even without explicit trigger, the skill proactively suggests running `/总结` 
 
 ## Installation / 安装
 
-**最短路径安装（推荐）**：
+### 方法一：市场安装（推荐，跨平台通用）
+
+> 🚧 即将上线 CCPM 市场，届时一条命令即可安装：
+> ```
+> /plugin install summarize@daymade/claude-code-skills
+> ```
+
+当前可用的跨平台安装方式：
 
 ```bash
-git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.zcode/skills/smrz
+# 任意平台，一行命令
+git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.zcode-skills/summarize
 ```
 
-> 目录名 `smrz` 是 summarize 的缩写，ZCode 按 `SKILL.md` 的 `name` 字段识别技能，目录名不影响功能。
+> 目录名任意，AI 按 `SKILL.md` 的 `name: summarize` 字段识别，与路径无关。
 
-**完整路径**（与其他技能命名风格一致）：
+### 方法二：按平台安装
+
+| 平台 | 安装路径 |
+|------|---------|
+| **ZCode** | `~/.zcode/skills/summarize` |
+| **Claude Code** | `~/.claude/skills/summarize` |
+| **Cursor** | `~/.cursor/skills/summarize` |
+| **Codex CLI** | `~/.codex/skills/summarize` |
+| **Windsurf** | `~/.windsurf/skills/summarize` |
+| **通用（推荐）** | `~/.zcode-skills/summarize` 或任意路径 |
 
 ```bash
-git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.zcode/skills/summarize
+git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git {你的平台路径}
 ```
 
 安装后输入 `/总结` 即可触发。
 
 ---
 
-## Distribution / 分发与推广
+## Distribution / 分发渠道
 
-### 已接入渠道
-
-| 渠道 | 状态 | 链接 |
+| 渠道 | 状态 | 安装方式 |
 |------|:--:|------|
-| GitHub Releases | ✅ | [v3.0.0](https://github.com/gtbwpkwjnb-alt/summarize-skill/releases/tag/v3.0.0) |
-| SSH Clone | ✅ | `git@github.com:gtbwpkwjnb-alt/summarize-skill.git` |
-
-### 推荐推广渠道
-
-| 渠道 | 类型 | 操作 |
-|------|------|------|
-| **[daymade/claude-code-skills](https://github.com/daymade/claude-code-skills)** | CCPM 市场（⭐1.2k） | 提交 PR 加入索引，用户通过 `/plugin marketplace add` 安装 |
-| **[majiayu000/claude-skill-registry](https://github.com/majiayu000/claude-skill-registry)** | 技能搜索引擎 + CLI `sk` | 提交 JSON 索引条目，支持关键词搜索发现 |
-| **[Anthropic 社区插件](https://github.com/anthropics/claude-plugins-community)** | 官方社区市场 | 提交至 `clau.de/plugin-directory-submission` |
-| **[netresearch/claude-code-marketplace](https://github.com/netresearch/claude-code-marketplace)** | 社区市场 | 提交 PR 注册技能 |
+| GitHub Releases | ✅ 已发布 | `git clone` (见上方) |
+| CCPM 市场 (daymade/claude-code-skills) | 🚧 待提交 | `/plugin install summarize` |
+| claude-skill-registry | 🚧 待提交 | `sk install summarize` |
+| Anthropic 社区插件 | 🚧 待提交 | `/plugin marketplace add` |
 
 ### 推荐管理工具
 
