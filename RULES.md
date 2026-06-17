@@ -36,7 +36,15 @@
 - **来源**: D:\codex\AGENTS.md (已有) → 2026-06-17 复发 → 升级强化
 - **回测**: 🔄 复发待修订 | **干净天数**: 0
 
-### P0-4: Edit 前必须 Read
+### P0-4: GitHub 推送用 SSH，不用 HTTPS
+- **触发**: 任何 `git push` / `git clone` 到 GitHub 的操作
+- **行为**: 远程 URL 必须用 `git@github.com:...` 格式（SSH），禁止 `https://github.com/...`
+- **原因**: `github.com:443` (HTTPS) 被墙，连接重置；SSH 协议 (port 22) 正常
+- **反例**: `gh repo create --push` 默认走 HTTPS → `Recv failure: Connection was reset`
+- **操作**: `git remote set-url origin git@github.com:gtbwpkwjnb-alt/{repo}.git`
+- **来源**: summarize-skill 发布过程 (2026-06-17) | **回测**: ✅ 已验证 | **干净天数**: 0
+
+### P0-5: Edit 前必须 Read
 - **触发**: 任何 Edit/Write 操作前
 - **行为**: 先用 Read 确认文件当前内容，Read 范围必须覆盖要改的行
 - **反例**: 改文件前没读导致改错位置
@@ -81,7 +89,9 @@ _暂无项目特定规则。_
 | P0-1 | 模拟协议前先查协议规范 | codex/2026-06-17 | 全局 | ✅ | ❌ |
 | P0-2 | 同工具受阻3次换工具 | codex/2026-06-17 | 全局 | ✅ | ❌ |
 | P0-3 | 连失2次换方法(强化) | codex/2026-06-17 | 全局 | ✅ | 🔄 |
-| P0-4 | Edit前必须Read | ZCode/2026-06-16 | 全局 | ✅ | ❌ |
+| P0-4 | GitHub推送用SSH | summarize/2026-06-17 | 全局 | ✅ | ✅ |
+| P0-5 | Edit前必须Read | ZCode/2026-06-16 | 全局 | ✅ | ❌ |
 | P1-1 | 第2轮试错前搜GitHub | codex/2026-06-17 | 全局 | ✅ | ❌ |
 | P1-2 | 约束矛盾当场指出 | codex/2026-06-17 | 全局 | ✅ | ❌ |
+| P0-4 | GitHub推送用SSH | summarize/2026-06-17 | 全局 | ✅ | ✅ |
 | PROJ-1 | CC-Switch≠ChatGPT登录 | codex/2026-06-17 | 项目 | ✅ | ❌ |
