@@ -1,7 +1,7 @@
 # sutras.yaml — summarize skill metadata & configuration
 
 name: summarize
-version: "4.0.0"
+version: "4.1.0"
 description: |
   精炼会话 → 进度/错误/自进化。单独打出"总结"或"summarize"触发。句子中不触发。必备于超1天任务开发。
   Condense sessions → progress/errors/self-evolve. Triggered by standalone "总结" or "summarize". Essential for 1+ day dev tasks.

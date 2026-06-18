@@ -3,7 +3,7 @@
 > **Condense · Progress · Self-Evolve** — 任务开发超过1天，扫一眼就了解会话全貌。
 > Essential for 1+ day dev tasks. One glance tells you everything.
 
-[![Version](https://img.shields.io/badge/version-4.0.0-blue)](VERSION)
+[![Version](https://img.shields.io/badge/version-4.1.0-blue)](VERSION)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-ZCode%20%7C%20Claude%20Code-lightgrey)]()
 
@@ -11,9 +11,9 @@
 
 ## Overview / 概述
 
-**EN**: A ZCode skill that condenses long sessions into a glanceable summary — progress, key decisions, file changes, and error-driven self-evolution. Triggered by `/总结`. Designed to be indispensable for multi-day development sessions.
+**EN**: A ZCode skill that condenses long sessions into a glanceable summary — progress, key decisions, file changes, and error-driven self-evolution. Triggered by standalone `总结` or `summarize`. Designed to be indispensable for multi-day development sessions.
 
-**CN**: 精炼长对话为一眼可读的摘要——进度、关键决策、文件变更、错误驱动的自进化。输入`/总结`触发。专为超1天任务开发设计，必备工具。
+**CN**: 精炼长对话为一眼可读的摘要——进度、关键决策、文件变更、错误驱动的自进化。单独输入`总结`或`summarize`触发。专为超1天任务开发设计，必备工具。
 
 ### Core Capabilities / 核心能力
 
@@ -23,7 +23,7 @@
 | 📋 **Task Progress** | 任务进度 — 完成/待办/下一步 + 压力等级 |
 | ⚡ **Error Self-Evolve** | 错误自进化 — 5维分类 + 规则回测 + 全局/项目分流 |
 
-**设计原则**: 一句话能表达清楚绝不用两句。`/总结`完整输出≤15行，`/总结 统计`≤5行。
+**设计原则**: 一句话能表达清楚绝不用两句。`总结`完整输出≤15行，`总结 统计`≤5行。
 
 ---
 
@@ -132,6 +132,12 @@ summarize/
 
 ## Changelog / 变更日志
 
+### v4.1.0 (2026-06-18) — 自然词触发
+
+- 🎯 **New: Natural word trigger** — `总结` / `summarize` standalone trigger replaces `/总结` slash command
+- 🔄 **更新说明** — README/SKILL.md/sutras.yaml 触发方式全部同步
+- ⚠️ **Non-trigger** — 句子中出现不触发（如"总结一下今天的工作"）
+
 ### v4.0.0 (2026-06-18) — 精炼版
 
 **Major: 5 modules → 3 core modules. Line count 275→133 (-52%).**
@@ -185,7 +191,7 @@ git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.agent-skills/summ
 cd ~/.agent-skills/summarize && git pull
 ```
 
-或运行`/总结 统计`自动检测 GitHub 新版本。安装后输入`/总结`即可触发。
+或运行`总结 统计`自动检测 GitHub 新版本。安装后输入`总结`或`summarize`即可触发。
 
 ---
 

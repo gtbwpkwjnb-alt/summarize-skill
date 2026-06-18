@@ -1,11 +1,11 @@
 ---
 name: summarize
-description: 精炼会话 → 进度/错误/自进化。单独打出"总结"或"summarize"触发。句子中不触发。必备于超1天任务开发。
-           Condense sessions → progress/errors/self-evolve. Triggered by standalone "总结" or "summarize". Essential for 1+ day dev tasks.
+description: 精炼会话 → 进度/错误/自进化。说"总结"触发，长会话自动提醒。
+           Condense sessions → progress/errors/self-evolve. Say "总结" to trigger. Auto-reminds on long sessions.
 user-invocable: true
 ---
 
-# /总结 v4.0 — 精炼 · 进度 · 自进化
+# 总结 v4.1 — 精炼 · 进度 · 自进化
 
 > **设计目标**: 任务开发>1天时，让你扫一眼就了解会话全貌。
 > **核心原则**: 一句话能表达清楚绝不用两句。不得输出与3模块无关的内容。
@@ -97,7 +97,7 @@ user-invocable: true
 
 ---
 
-## /总结 统计
+## `总结 统计`
 
 ```
 📊 运行{N}次 | 检测{N}错误 | 累计{N}规则
