@@ -1,39 +1,43 @@
 ---
 name: summarize
-description: 精炼会话 → 进度/错误/自进化。说"总结"触发，长会话自动提醒。
-           Condense sessions → progress/errors/self-evolve. Say "总结" to trigger. Auto-reminds on long sessions.
+description: 精炼会话 → 进度/错误/自进化。多平台通用。说"总结"触发，长会话自动提醒。
+           Condense sessions → progress/errors/self-evolve. Multi-platform. Say "总结" to trigger. Auto-reminds on long sessions.
 user-invocable: true
 ---
 
-# 总结 v4.1 — 精炼 · 进度 · 自进化
+# 总结 v5.0 — 精炼 · 进度 · 自进化（多平台通用）
 
 > **设计目标**: 任务开发>1天时，让你扫一眼就了解会话全貌。
 > **核心原则**: 一句话能表达清楚绝不用两句。不得输出与3模块无关的内容。
+> **平台**: ZCode / Claude Code / Codex / Cursor / Windsurf / 任何支持自定义技能的 AI 编程助手
 
 ---
 
-## 触发方式
+## 触发方式（按平台）
 
-> ⚠️ **只认单独输入**：单独打出 `总结` 或 `summarize`（独立成词，前后空格/标点不算在句）即触发。在句子中不触发。
+| 平台 | 触发方式 | 示例 |
+|------|---------|------|
+| **ZCode** | 独立词 `总结` 或 `summarize`（前后空格/标点不算在句） | `> 总结` |
+| **Claude Code** | 建议配置 `/summarize` 别名 | `> /summarize` |
+| **Codex (OpenAI)** | 独立词 `总结` 或 `summarize` | `> 总结` |
+| **Cursor** | 建议配置 `@summarize` 命令 | `> @summarize` |
+| **Windsurf** | 独立词 `总结` 或 `summarize` | `> 总结` |
+| **通用** | 在提示中引入"请总结当前会话" | |
 
-| 触发 | 产出 |
-|------|------|
-| `总结` 或 `summarize` | 3模块完整输出（≤15行） |
-| `总结 统计` | 错误分布+进化状态（≤5行） |
+### 不触发场景
 
 | ❌ 不触发 | 原因 |
 |-----------|------|
 | "总结一下今天的工作" | 在句中，非独立词 |
-| "/总结" | 改为自然词触发 |
 | 会话<5轮无错误 | 无可收割内容 |
 | 纯对话无工具调用 | 模块3不会产出 |
 | 同一会话10轮内已执行过 | 间隔太短增量不足 |
 
 ## 首次初始化
 
-自动创建 `harvests/` + `error-ledger.md` + `_self-stats.md`
+自动创建技能目录下的 `harvests/` + `error-ledger.md` + `_self-stats.md`
 
-**错误分流**: 工具/流程→全局`error-ledger.md` | 项目配置→`harvests/{project}/errors.md` | 代码实现→模块3建议不入账
+**错误分流**: 工具/流程错误→全局`error-ledger.md` | 项目配置→`harvests/{project}/errors.md` | 代码实现→模块3建议不入账
 
 ## 主动提醒（仅提醒一次，不打断任务）
 
@@ -73,11 +77,19 @@ user-invocable: true
 
 ## 模块 3：错误自进化（核心）
 
-> 执行前 Read `references/rules.md`
+> 执行前加载本地规则文件 (`references/rules.md`)，如不存在则从 0 开始。
 
 **检测**: 工具error / 用户纠正 / 同一操作重试≥3次
 
-**5 维分类**: PROC流程违规 / ASSU假设错误 / ENVR环境问题 / TOOL工具误用 / KNOW知识盲区
+**5 维分类**（通用版，按你的平台替换例子）：
+
+| 代码 | 分类 | 说明 | 示例 |
+|:----:|------|------|------|
+| PROC | 流程违规 | 跳过必要步骤 | 改文件前没读原内容 |
+| ASSU | 假设错误 | 用了未确认的标识符/路径 | 编造不存在的函数名 |
+| ENVR | 环境问题 | 网络/系统/权限限制 | 外网不可达，命令不支持 |
+| TOOL | 工具误用 | 选了不适当的工具 | 用通用命令代替专用工具 |
+| KNOW | 知识盲区 | 缺乏领域/项目上下文 | 不熟悉项目约定 |
 
 ```
 ⚠️ 错误({N}):
@@ -105,6 +117,30 @@ user-invocable: true
 ⚡ 进化: {模块健康度}
 📦 版本: v{current} | latest: v{latest}
 ```
+
+---
+
+## 安装方式
+
+```bash
+# 一键安装（脚本自动检测平台）
+curl -sL https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-skill/master/install.sh | bash
+```
+
+```powershell
+# Windows PowerShell
+iwr https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-skill/master/install.ps1 | iex
+```
+
+详见 [README.md](README.md) 或 [GitHub 仓库](https://github.com/gtbwpkwjnb-alt/summarize-skill)。
+
+---
+
+## 平台前置条件
+
+- 支持自定义技能/命令注入（ZCode 原生支持，其他平台可能需要手动配置）
+- 文件系统读写权限（存储收割数据）
+- 能够访问当前会话的对话历史
 
 ---
 

@@ -1,10 +1,10 @@
 # sutras.yaml — summarize skill metadata & configuration
 
 name: summarize
-version: "4.1.0"
+version: "5.0.0"
 description: |
-  精炼会话 → 进度/错误/自进化。单独打出"总结"或"summarize"触发。句子中不触发。必备于超1天任务开发。
-  Condense sessions → progress/errors/self-evolve. Triggered by standalone "总结" or "summarize". Essential for 1+ day dev tasks.
+  精炼会话 → 进度/错误/自进化。多平台通用。单独打出"总结"或"summarize"触发。
+  Condense sessions → progress/errors/self-evolve. Multi-platform. Triggered by standalone "总结" or "summarize".
 
 author: ZCode (https://github.com/gtbwpkwjnb-alt)
 license: MIT
@@ -12,6 +12,7 @@ repository: https://github.com/gtbwpkwjnb-alt/summarize-skill
 
 compatibility:
   platforms: [zcode, claude-code, cursor, codex, windsurf]
+  note: "安装脚本自动检测目标平台并适配安装路径"
   minVersion: "2.0.0"
 
 build:
@@ -31,6 +32,11 @@ distribution:
     - session-management
     - self-evolution
     - productivity
+    - multi-platform
+    - agent-skill
+    - zcode
+    - claude-code
+    - cursor
   category: developer-tools
   github:
     owner: gtbwpkwjnb-alt
