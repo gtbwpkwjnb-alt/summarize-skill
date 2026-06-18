@@ -1,8 +1,9 @@
-# /summarize — Session Diagnosis · Error Tracking · Self-Evolution Skill
+# /总结 v4.0 — 精炼 · 进度 · 自进化
 
-> **/总结** — 会话诊断 · 错误追踪 · 自进化技能
+> **Condense · Progress · Self-Evolve** — 任务开发超过1天，扫一眼就了解会话全貌。
+> Essential for 1+ day dev tasks. One glance tells you everything.
 
-[![Version](https://img.shields.io/badge/version-3.0.0-blue)](VERSION)
+[![Version](https://img.shields.io/badge/version-4.0.0-blue)](VERSION)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-ZCode%20%7C%20Claude%20Code-lightgrey)]()
 
@@ -10,21 +11,19 @@
 
 ## Overview / 概述
 
-**EN**: A ZCode/Claude Code skill that diagnoses the current session, tracks errors across projects, harvests decisions & insights, and continuously evolves its own rules. Triggered by `/总结`.
+**EN**: A ZCode skill that condenses long sessions into a glanceable summary — progress, key decisions, file changes, and error-driven self-evolution. Triggered by `/总结`. Designed to be indispensable for multi-day development sessions.
 
-**CN**: 一键诊断当前会话进度、跨项目追踪错误、收割决策与洞察、持续进化规则的 ZCode/Claude Code 技能。输入 `/总结` 触发。
+**CN**: 精炼长对话为一眼可读的摘要——进度、关键决策、文件变更、错误驱动的自进化。输入`/总结`触发。专为超1天任务开发设计，必备工具。
 
 ### Core Capabilities / 核心能力
 
 | Feature | 功能 |
 |---------|------|
-| 📋 **Progress Snapshot** | 进度快照 — 完成/进行/待做 + 下一步建议 |
-| ⚠️ **Error Diagnosis** | 错误诊断 — 5维根因分类 + 自动检测 + 跨会话追踪 |
-| 🛡️ **Backtest Verification** | 回测验证 — 检查已沉淀规则是否被遵守，追踪干净天数 |
-| 🚜 **Experience Harvest** | 经验收割 — 决策/错误/洞察/规则 自动标注与持久化 |
-| 🧬 **Rule Evolution** | 规则进化 — 三级作用域分流（全局/项目/代码） |
-| 🔧 **Optimization Suggestions** | 优化建议 — 代码优化 + 技能自进化 |
-| 🗜️ **Context Compression** | 上下文压缩 — 会话摘要，可复制到新会话续接 |
+| 🗜️ **Session Condense** | 会话精炼 — ≤5句关键摘要 + 涉文件清单 + 关键决策 |
+| 📋 **Task Progress** | 任务进度 — 完成/待办/下一步 + 压力等级 |
+| ⚡ **Error Self-Evolve** | 错误自进化 — 5维分类 + 规则回测 + 全局/项目分流 |
+
+**设计原则**: 一句话能表达清楚绝不用两句。`/总结`完整输出≤15行，`/总结 统计`≤5行。
 
 ---
 
@@ -33,26 +32,21 @@
 ```
 /总结 触发
     │
-    ├─ 模块1: 进度快照 (Progress Snapshot)
-    ├─ 模块2: 错误诊断 (Error Diagnosis) ← 含回测验证
-    ├─ 模块3: 经验收割 (Experience Harvest)
-    ├─ 模块4: 优化建议 (Optimization) ← 🆕 v3.0
-    └─ 模块5: 上下文压缩 (Context Compression)
+    ├─ 模块1: 会话精炼 (Session Condense)         ← 核心
+    ├─ 模块2: 任务进度 (Task Progress)             ← 核心
+    └─ 模块3: 错误自进化 (Error Self-Evolve)       ← 核心
     
 三级闭环 / Three Closed Loops:
-┌─────────────────────────────────────────────┐
-│ 🔄 回测 / Backtest                           │
-│   规则沉淀 → 下次验证 → 更新days_clean       │
-│   → 复发则修订规则                            │
-├─────────────────────────────────────────────┤
-│ 📊 分级 / Scoping                            │
-│   错误检测 → 自动判断作用域                   │
-│   → 全局(AGENTS.md) / 项目(.zcode) / 代码(建议) │
-├─────────────────────────────────────────────┤
-│ 🧬 自进化 / Self-Evolution                   │
-│   模块使用统计 → 识别低价值模块               │
-│   → 建议裁剪/增强 → 技能持续优化              │
-└─────────────────────────────────────────────┘
+┌─────────────────────────────────────────┐
+│ 🔄 回测 / Backtest                       │
+│   规则沉淀 → 下次验证 → 更新干净天数     │
+├─────────────────────────────────────────┤
+│ 📊 分级 / Scoping                        │
+│   错误检测 → 全局(AGENTS.md) / 项目(.zcode) │
+├─────────────────────────────────────────┤
+│ 🧬 自进化 / Self-Evolution               │
+│   错误模式 → 规则建议 → 全局/项目分流     │
+└─────────────────────────────────────────┘
 ```
 
 ### Error Storage / 错误存储层级
@@ -62,7 +56,6 @@ harvests/
   error-ledger.md              ← 全局错误（跨项目复用）
   {project}/
     errors.md                  ← 项目错误（仅本项目）
-    YYYY-MM-DD-{id}.md         ← 会话收割文件
   _self-stats.md               ← 技能自身运行统计
   index.md                     ← 收割索引
 ```
@@ -74,44 +67,37 @@ harvests/
 ```
 summarize/
 ├── SKILL.md                  # 技能主文件 / Main skill definition
-├── RULES.md                  # 进化规则（三级作用域）
-├── VERSION                   # 版本号
+├── VERSION                   # 版本号 / Version
 ├── README.md                 # 本文件 / This file
-├── .gitignore                # 排除会话数据 / Exclude session data
 ├── references/
-│   ├── harvest-format.md     # 收割文件格式规范
-│   └── rule-template.md      # 规则卡片模板
+│   └── rules.md              # ⚡ 进化规则（P0/P1/项目）
 └── harvests/                 # 运行时数据 / Runtime data
     ├── index.md              # 收割索引
     ├── error-ledger.md       # 全局错误账本
     ├── _self-stats.md        # 自反馈统计
     └── {project}/
         ├── errors.md         # 项目错误账本
-        └── YYYY-MM-DD-*.md  # 会话收割文件 (gitignored)
 ```
 
 ---
 
 ## Usage / 使用方式
 
-### Triggers / 触发命令
+### Commands / 命令
 
-| Command / 命令 | Action / 行为 |
+| Command / 命令 | Output / 产出 |
 |----------------|---------------|
-| `/总结` | 完整诊断（5 模块全部执行） |
-| `/总结 历史` | 查看收割索引，按项目浏览 |
-| `/总结 错误` | 查看错误账本（全局 + 本项目） |
-| `/总结 统计` | 技能自身统计 + 自进化建议 |
+| `/总结` | 3模块完整输出（≤15行） |
+| `/总结 统计` | 错误分布+进化状态（≤5行） |
+| "总结一下…" | ❌ 不触发 |
 
 ### Auto-Reminder / 主动提醒
 
-Even without explicit trigger, the skill proactively suggests running `/总结` when:
-
 | Condition | Threshold | Message |
 |-----------|:--------:|---------|
-| 会话轮次过多 | ≥ 20 rounds | "💡 已 {N} 轮，建议 /总结 压缩上下文" |
-| 错误频繁 | ≥ 3 errors | "⚠️ 本会话已 {N} 个错误，建议 /总结 收割经验" |
-| 工具调用密集 | ≥ 30 calls | "🔧 工具调用 {N} 次，建议 /总结 归档进度" |
+| 会话轮次过多 | ≥20 rounds | 💡 已{N}轮，建议/总结 |
+| 错误频繁 | ≥3 errors | ⚠️ 已{N}个错误，建议/总结 |
+| 工具调用密集 | ≥30 calls | 🔧 {N}次调用，建议/总结 |
 
 ---
 
@@ -125,40 +111,46 @@ Even without explicit trigger, the skill proactively suggests running `/总结` 
 | TOOL | Tool Misuse | 工具误用 | Using Bash instead of Grep, old_string mismatch |
 | KNOW | Knowledge Gap | 知识盲区 | Unfamiliar with conventions, missing project context |
 
-### Error Record Fields / 错误记录字段
+### Output Format / 输出格式
 
-```markdown
-| 错误类型 | 次数 | 分类 | 首次 | 最近 | days_clean | 避免规则 | 已验证 | 涉及项目 | 状态 |
-|---------|:---:|:--:|------|------|:--------:|---------|:-----:|---------|------|
 ```
+⚠️ 错误({N}):
+| {错误} | {分类} | {N}次 | {标记}
 
-- **days_clean**: Days since last occurrence (positive reinforcement)
-- **避免规则 / Avoidance Rule**: Linked prevention rule ID
-- **已验证 / Verified**: Whether the rule has been backtest-confirmed
+🛡️ 规则:
+✅ {规则} 干净+{N}
+⚠️ {规则} 违反
+🔄 {规则} 复发——修订建议:{行动}
+
+⚡ 进化:
+全局→ {规则建议}
+项目→ {规则建议}
+```
 
 ---
 
 ## Changelog / 变更日志
 
-### v3.0.0 (2026-06-17) — Current
+### v4.0.0 (2026-06-18) — 精炼版
 
-**Major: 9 modules → 5 modules + 3 closed loops**
+**Major: 5 modules → 3 core modules. Line count 275→133 (-52%).**
 
-- 🔄 **New: Backtest verification** — checks if previously-established rules were followed
-- 📊 **New: Three-level error scoping** — global/project/code separation
-- 🧬 **New: Skill self-evolution** — module usage tracking, auto-suggests trimming
-- 🔧 **New: Optimization suggestions** — code optimization based on error patterns
-- ✅ Simplified module structure: 9→5 (removed noise, merged overlapping)
-- ❌ Removed `/总结 审批` (never used)
-- 📝 All "待办/TODO" changed to "建议/Suggestion" — user choice, not mandatory
+- 🗜️ **New: Session Condense (模块1)** — ≤5句关键摘要 + 文件清单 + 关键决策
+- 📋 **New: Task Progress (模块2)** — 完成/待办/下一步 + 压力等级
+- ⚡ **New: Error Self-Evolve (模块3)** — 5维分类 + 规则回测 + 全局/项目分流
+- ❌ **Removed** — 技能库扫描(Module 4.3), Memory Bank收割格式, 版本检查
+- ❌ **Removed** — 6个冗余参考文件 (harvest-format, optimization-triggers, example-output, error-record-spec, harvest-workflow, rule-template)
+- ✅ **Strengthened** — 极简输出原则: `/总结`≤15行, `/总结 统计`≤5行
+- ✅ **Bilingual** — 中英双语技能描述，国际化支持
+
+### v3.0.0 (2026-06-17)
+
+- Backtest verification, three-level error scoping, skill self-evolution
+- 9 modules → 5 modules
 
 ### v2.0.0 (2026-06-16)
 
-- Memory Bank 6-section harvest format
-- 5-dimension root cause classification
-- Error ledger with cross-session frequency tracking
-- Rule approval workflow
-- `/总结 历史` `/总结 错误` `/总结 统计` sub-commands
+- Memory Bank harvest format, 5-dimension classification, sub-commands
 
 ### v1.0.0
 
@@ -180,15 +172,11 @@ Windows PowerShell:
 iwr https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-skill/master/install.ps1 | iex
 ```
 
-> 自动安装到 `~/.agent-skills/summarize/`，兼容所有 AI 编码助手。
-
 ### 手动安装
 
 ```bash
 git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.agent-skills/summarize
 ```
-
-放在 AI 助手技能目录下即可，输入 `/总结` 触发。
 
 ### 更新
 
@@ -196,31 +184,13 @@ git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.agent-skills/summ
 cd ~/.agent-skills/summarize && git pull
 ```
 
-或运行 `/总结 统计` 自动检测 GitHub 新版本。安装后输入 `/总结` 即可触发。
+或运行`/总结 统计`自动检测 GitHub 新版本。安装后输入`/总结`即可触发。
 
 ---
 
-## 技能管理 / Skill Management
+## 反馈 / Feedback
 
-| 功能 | 方式 |
-|------|------|
-| 版本更新 | `/总结 统计` 自动比对 GitHub Release，有新版本提醒 |
-| Bug 反馈 | [GitHub Issues](https://github.com/gtbwpkwjnb-alt/summarize-skill/issues) |
-| 使用交流 | [GitHub Discussions](https://github.com/gtbwpkwjnb-alt/summarize-skill/discussions) |
-| 快捷反馈 | `/总结 反馈` 自动生成 issue 模板 |
-
----
-
-## Credits / 致谢
-
-Inspired by these open-source projects:
-
-| Project | What We Learned |
-|---------|----------------|
-| [claude-engram](https://github.com/20alexl/claude-engram) | Per-project memory scoping, recency-decayed errors, causal attribution |
-| [ork/errors](https://github.com/yonatangross/orchestkit) | Structured error→resolution pattern mapping |
-| [agenttrace](https://github.com/luoyuctl/agenttrace) | Session health scoring, regression detection, baseline comparison |
-| [agent-profiler](https://github.com/DevonPeroutky/agent-profiler) | Repeated-step detection, context bloat profiling |
+🐛 [GitHub Issues](https://github.com/gtbwpkwjnb-alt/summarize-skill/issues/new)
 
 ---
 

@@ -1,12 +1,10 @@
 # sutras.yaml — summarize skill metadata & configuration
-# https://agentskills.io
 
 name: summarize
-version: "3.0.1"
+version: "4.0.0"
 description: |
-  Use when sessions exceed 20 rounds, errors accumulate (≥3), or progress
-  needs cross-project archiving. Tracks errors with backtest verification
-  against established behavioral rules. Triggered by /总结.
+  精炼会话 → 进度/错误/自进化。超1天任务必备。
+  Condense sessions → progress/errors/self-evolve. Essential for 1+ day dev tasks.
 
 author: ZCode (https://github.com/gtbwpkwjnb-alt)
 license: MIT
@@ -22,16 +20,14 @@ build:
     - README.md
     - LICENSE
     - VERSION
-    - RULES.md
+    - references/rules.md
     - install.sh
     - install.ps1
-    - references/
     - harvests/
 
 distribution:
   tags:
     - diagnostics
-    - error-tracking
     - session-management
     - self-evolution
     - productivity
