@@ -1,7 +1,7 @@
 ---
 name: summarize
-description: 精炼会话 → 进度/错误/自进化。长会话(≥15轮)自动提醒。必备于超1天任务开发。
-           Condense sessions → progress/errors/self-evolve. Essential for 1+ day dev tasks.
+description: 精炼会话 → 进度/错误/自进化。单独打出"总结"或"summarize"触发。句子中不触发。必备于超1天任务开发。
+           Condense sessions → progress/errors/self-evolve. Triggered by standalone "总结" or "summarize". Essential for 1+ day dev tasks.
 user-invocable: true
 ---
 
@@ -12,17 +12,22 @@ user-invocable: true
 
 ---
 
-## 命令
+## 触发方式
 
-| 命令 | 产出 |
+> ⚠️ **只认单独输入**：单独打出 `总结` 或 `summarize`（独立成词，前后空格/标点不算在句）即触发。在句子中不触发。
+
+| 触发 | 产出 |
 |------|------|
-| `/总结` | 3模块完整输出（≤15行） |
-| `/总结 统计` | 错误分布+进化状态（≤5行） |
-| 对话中"总结一下…" | ❌ 不触发 |
+| `总结` 或 `summarize` | 3模块完整输出（≤15行） |
+| `总结 统计` | 错误分布+进化状态（≤5行） |
 
-## 何时不触发
-
-会话<5轮无错误 / 纯对话无工具调用 / 同一会话10轮内已执行过
+| ❌ 不触发 | 原因 |
+|-----------|------|
+| "总结一下今天的工作" | 在句中，非独立词 |
+| "/总结" | 改为自然词触发 |
+| 会话<5轮无错误 | 无可收割内容 |
+| 纯对话无工具调用 | 模块3不会产出 |
+| 同一会话10轮内已执行过 | 间隔太短增量不足 |
 
 ## 首次初始化
 
