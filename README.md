@@ -34,7 +34,7 @@
 |------|---------|------|
 | **ZCode** | 独立词 `总结` 或 `summarize` | `> 总结` |
 | **Claude Code** | 建议配置 `/summarize` 别名 | `> /summarize` |
-| **Codex** | 独立词 `总结` 或 `summarize` | `> 总结` |
+| **Codex (OpenAI)** | 独立词 `总结` 或 `summarize` | `> 总结` |
 | **Cursor** | 建议配置 `@summarize` 命令 | `> @summarize` |
 | **Windsurf** | 独立词 `总结` 或 `summarize` | `> 总结` |
 | **通用** | 在提示中引入"请总结当前会话" | |
@@ -163,6 +163,9 @@ git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.cursor/agent-skil
 
 # Codex
 git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.codex/skills/summarize
+
+# Windsurf
+git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.windsurf/skills/summarize
 ```
 
 ### 更新
