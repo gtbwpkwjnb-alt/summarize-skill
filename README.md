@@ -7,6 +7,7 @@
 [![Version](https://img.shields.io/badge/version-5.0.0-blue)](VERSION)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-ZCode%20%7C%20Claude%20Code%20%7C%20Codex%20%7C%20Cursor%20%7C%20Windsurf-lightgrey)]()
+[![skills.sh](https://img.shields.io/badge/skills.sh-listed-6f42c1)](https://skills.sh/gtbwpkwjnb-alt/summarize-skill)
 
 ---
 

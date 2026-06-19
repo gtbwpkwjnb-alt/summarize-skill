@@ -1,7 +1,16 @@
 ---
 name: summarize
-description: 精炼会话 → 进度/错误/自进化。多平台通用。说"总结"触发，长会话自动提醒。
-           Condense sessions → progress/errors/self-evolve. Multi-platform. Say "总结" to trigger. Auto-reminds on long sessions.
+version: "5.0.0"
+description: Use when the user wants to condense a long AI coding session into a glanceable summary showing progress, key decisions, file changes, and error patterns with self-evolving rules. Also auto-reminds when session exceeds 20 turns, 3 errors, or 30 tool calls. Multi-platform: ZCode, Claude Code, Codex, Cursor, Windsurf. Trigger: standalone '总结' or 'summarize'.
+description_zh: 当用户想要精炼长会话为一目了然的摘要时使用，包含进度、关键决策、文件变更、错误模式及自进化规则。会话超过20轮/3个错误/30次工具调用时主动提醒。多平台通用：ZCode/Claude Code/Codex/Cursor/Windsurf。触发词：独立词'总结'或'summarize'。
+description_en: Use when the user wants to condense a long AI coding session into a glanceable summary showing progress, key decisions, file changes, and error patterns with self-evolving rules. Also auto-reminds when session exceeds 20 turns, 3 errors, or 30 tool calls. Multi-platform: ZCode, Claude Code, Codex, Cursor, Windsurf. Trigger: standalone '总结' or 'summarize'.
+license: MIT
+compatibility: ZCode, Claude Code, Codex, Cursor, Windsurf, any agent with custom-skill support
+metadata:
+  author: gtbwpkwjnb-alt
+  version: "5.0.0"
+  tags: session-management, summarize, progress-tracking, error-tracking, self-evolution, diagnostics, zcode, claude-code, codex, cursor, windsurf
+zcode_priority: 80
 user-invocable: true
 ---
 
@@ -138,7 +147,7 @@ iwr https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-skill/master/inst
 
 ## 平台前置条件
 
-- 支持自定义技能/命令注入（ZCode 原生支持，其他平台可能需要手动配置）
+- 支持自定义技能/命令注入（本平台原生支持，其他平台可能需要手动配置）
 - 文件系统读写权限（存储收割数据）
 - 能够访问当前会话的对话历史
 
