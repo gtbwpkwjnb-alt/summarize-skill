@@ -1,12 +1,17 @@
 ---
 name: summarize
-description: Use when the user wants to condense a long AI coding session into a glanceable summary showing progress, key decisions, file changes, and error patterns with self-evolving rules. Multi-platform: ZCode, Claude Code, Codex, Cursor, Windsurf.
+version: "5.0.0"
+description: Use when the user wants to condense a long AI coding session into a glanceable summary showing progress, key decisions, file changes, and error patterns with self-evolving rules. Also auto-reminds when session exceeds 20 turns, 3 errors, or 30 tool calls. Multi-platform: ZCode, Claude Code, Codex, Cursor, Windsurf. Trigger: standalone '总结' or 'summarize'.
+description_zh: 当用户想要精炼长会话为一目了然的摘要时使用，包含进度、关键决策、文件变更、错误模式及自进化规则。会话超过20轮/3个错误/30次工具调用时主动提醒。多平台通用：ZCode/Claude Code/Codex/Cursor/Windsurf。触发词：独立词'总结'或'summarize'。
+description_en: Use when the user wants to condense a long AI coding session into a glanceable summary showing progress, key decisions, file changes, and error patterns with self-evolving rules. Also auto-reminds when session exceeds 20 turns, 3 errors, or 30 tool calls. Multi-platform: ZCode, Claude Code, Codex, Cursor, Windsurf. Trigger: standalone '总结' or 'summarize'.
 license: MIT
 compatibility: ZCode, Claude Code, Codex, Cursor, Windsurf, any agent with custom-skill support
 metadata:
   author: gtbwpkwjnb-alt
   version: "5.0.0"
-  tags: [session-management, summarize, progress-tracking, error-tracking, self-evolution]
+  tags: [session-management, summarize, progress-tracking, error-tracking, self-evolution, diagnostics, zcode, claude-code, codex, cursor, windsurf]
+zcode_priority: 80
+user-invocable: true
 ---
 
 # 总结 v5.0 — 精炼 · 进度 · 自进化（多平台通用）
