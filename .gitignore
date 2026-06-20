@@ -1,0 +1,12 @@
+# Build output
+dist/
+
+# Session harvest files (runtime data, not part of the skill)
+harvests/*/202[0-9]-*.md
+harvests/*/20[0-9][0-9]-*.md
+
+# Keep template/structure files
+!harvests/index.md
+!harvests/error-ledger.md
+!harvests/_self-stats.md
+!harvests/*/errors.md

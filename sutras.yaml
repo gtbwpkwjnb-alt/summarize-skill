@@ -1,0 +1,46 @@
+# sutras.yaml — summarize skill metadata & configuration
+
+name: summarize
+version: "5.1.0"
+description: |
+  总结/summarize → 会话精炼·进度·自进化
+  Summarize → session condense, progress tracking, error self-evolve.
+
+author: ZCode (https://github.com/gtbwpkwjnb-alt)
+license: MIT
+repository: https://github.com/gtbwpkwjnb-alt/summarize-skill
+
+compatibility:
+  platforms: [zcode, claude-code, cursor, codex, windsurf]
+  note: "安装脚本自动检测目标平台并适配安装路径"
+  minVersion: "2.0.0"
+
+build:
+  include:
+    - SKILL.md
+    - README.md
+    - LICENSE
+    - VERSION
+    - references/rules.md
+    - install.sh
+    - install.ps1
+    - harvests/
+
+distribution:
+  tags:
+    - diagnostics
+    - session-management
+    - self-evolution
+    - productivity
+    - multi-platform
+    - agent-skill
+    - zcode
+    - claude-code
+    - cursor
+  category: developer-tools
+  github:
+    owner: gtbwpkwjnb-alt
+    repo: summarize-skill
+  install:
+    bash: "curl -sL https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-skill/master/install.sh | bash"
+    powershell: "iwr https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-skill/master/install.ps1 | iex"
