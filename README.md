@@ -1,10 +1,10 @@
-# /总结 v5.1 — 精炼 · 进度 · 自进化（多平台通用）
+# /总结 v5.2 — 精炼 · 进度 · 自进化 · 技能统计（多平台通用）
 
-> **Condense · Progress · Self-Evolve** — 任务开发超过1天，扫一眼就了解会话全貌。
+> **Condense · Progress · Self-Evolve · Analytics** — 任务开发超过1天，扫一眼就了解会话全貌。
 > Essential for 1+ day dev tasks. One glance tells you everything.
 > **跨平台**: ZCode · Claude Code · Codex · Cursor · Windsurf
 
-[![Version](https://img.shields.io/badge/version-5.1.0-blue)](VERSION)
+[![Version](https://img.shields.io/badge/version-5.2.0-blue)](VERSION)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-ZCode%20%7C%20Claude%20Code%20%7C%20Codex%20%7C%20Cursor%20%7C%20Windsurf-lightgrey)]()
 
@@ -12,9 +12,9 @@
 
 ## Overview / 概述
 
-**EN**: A multi-platform agent skill that condenses long sessions into a glanceable summary — progress, key decisions, file changes, and error-driven self-evolution. Triggered ONLY by standalone `总结` or `summarize` (not in a sentence, no auto-reminder). Designed for multi-day development sessions. Works across ZCode, Claude Code, Codex, Cursor, and Windsurf.
+**EN**: A multi-platform agent skill that condenses long sessions into a glanceable summary — progress, key decisions, file changes, error-driven self-evolution, and skill call analytics. Triggered ONLY by standalone `总结` or `summarize` (not in a sentence, no auto-reminder). Designed for multi-day development sessions. Works across ZCode, Claude Code, Codex, Cursor, and Windsurf.
 
-**CN**: 跨平台 AI 编程助手技能，精炼长对话为一眼可读的摘要——进度、关键决策、文件变更、错误驱动的自进化。**仅**独立词`总结`或`summarize`触发（句中不触发，无自动提醒）。专为超1天任务开发设计。支持 ZCode / Claude Code / Codex / Cursor / Windsurf。
+**CN**: 跨平台 AI 编程助手技能，精炼长对话为一眼可读的摘要——进度、关键决策、文件变更、错误驱动的自进化、技能调用统计。**仅**独立词`总结`或`summarize`触发（句中不触发，无自动提醒）。专为超1天任务开发设计。支持 ZCode / Claude Code / Codex / Cursor / Windsurf。
 
 ### Core Capabilities / 核心能力
 
@@ -23,8 +23,9 @@
 | 🗜️ **Session Condense** | 会话精炼 — ≤5句关键摘要 + 涉文件清单 + 关键决策 |
 | 📋 **Task Progress** | 任务进度 — 完成/待办/下一步 + 压力等级 |
 | ⚡ **Error Self-Evolve** | 错误自进化 — 5维分类 + 规则回测 + 全局/项目分流 |
+| 📊 **Skill Analytics** | 技能调用统计 — 调用次数 + token 估算 + 效果评估 🆕 |
 
-**设计原则**: 一句话能表达清楚绝不用两句。`总结`完整输出≤15行，`总结 统计`≤5行。
+**设计原则**: 一句话能表达清楚绝不用两句。`总结`完整输出≤20行（自动折叠超限内容到归档），`总结 统计`≤6行。
 
 ---
 
@@ -47,11 +48,14 @@
 ```
 触发（独立词 总结 / summarize）
     │
-    ├─ 模块1: 会话精炼 (Session Condense)         ← 核心
+    ├─ 模块1: 会话精炼 (Session Condense)         ← 核心  ≤8文件/≤5决策
     ├─ 模块2: 任务进度 (Task Progress)             ← 核心
-    └─ 模块3: 错误自进化 (Error Self-Evolve)       ← 核心
-    
-三级闭环 / Three Closed Loops:
+    ├─ 模块3: 错误自进化 (Error Self-Evolve)       ← 核心  ≤5错误
+    └─ 模块4: 技能调用统计 (Skill Analytics)       ← 新增  ≤5行
+    │
+    └─ 超限内容 → 📦 归档 (harvests/{project}/{session-id}.md)
+
+四级闭环 / Four Closed Loops:
 ┌─────────────────────────────────────────┐
 │ 🔄 回测 / Backtest                       │
 │   规则沉淀 → 下次验证 → 更新干净天数     │
@@ -61,8 +65,36 @@
 ├─────────────────────────────────────────┤
 │ 🧬 自进化 / Self-Evolution               │
 │   错误模式 → 规则建议 → 全局/项目分流     │
+├─────────────────────────────────────────┤
+│ 📈 技能分析 / Skill Analytics  🆕        │
+│   调用追踪 → token 估算 → 效果评估       │
 └─────────────────────────────────────────┘
 ```
+
+### 输出精炼模型 🆕
+
+每个模块有硬上限。超出部分自动折叠为 `📦 详见归档`，完整内容写入归档文件。
+
+| 模块 | 上限 | 超出处理 |
+|------|------|---------|
+| 模块1 文件清单 | 8个 | `…等{N}个文件 📦` |
+| 模块1 关键决策 | 5条 | `…等{N}条决策 📦` |
+| 模块3 错误列表 | 5条 | `…等{N}条错误 📦` |
+| 整体输出 | ≤20行 | 超限优先折叠模块3→1 |
+
+### 归档模型 🆕
+
+```
+harvests/
+  error-ledger.md              ← 全局错误（跨项目复用）
+  _self-stats.md               ← 技能自身运行统计
+  index.md                     ← 收割索引（同会话只保留最新一条）
+  {project}/
+    errors.md                  ← 项目错误
+    {session-id}.md            ← 当前会话归档（每次总结覆盖更新，非追加）
+```
+
+**更新策略**: 同一个会话多次 `总结` → 覆盖写入同一归档文件，文件头记录最后更新时间戳。避免数据重复，保持精炼。
 
 ### Error Storage / 错误存储层级
 
@@ -89,9 +121,10 @@ summarize/
 └── harvests/                 # 运行时数据 / Runtime data
     ├── index.md              # 收割索引
     ├── error-ledger.md       # 全局错误账本
-    ├── _self-stats.md        # 自反馈统计
+    ├── _self-stats.md        # 自反馈统计（含技能调用统计）
     └── {project}/
         ├── errors.md         # 项目错误账本
+        └── {session-id}.md   # 会话归档（覆盖更新）
 ```
 
 ---
@@ -109,18 +142,54 @@ summarize/
 ### Output Format / 输出格式
 
 ```
+📋 {项目} —— {1句总结}
+> {3-5句关键摘要}
+📁 文件({N}): {前8个}, …等{N}个文件 📦
+
+🔑 关键决策({N}):
+- {前5条}
+
+✅ 完成({N}): {简述}
+⏳ 待办({N}): {简述}
+💡 下一步: {建议}
+📊 ~{N}轮 | 🟢/🟡/🔴
+
 ⚠️ 错误({N}):
-| {错误} | {分类} | {N}次 | {标记}
+| {前5条} | {分类} | {N}次 | {标记}
+  …等{N}条错误 📦
 
 🛡️ 规则:
 ✅ {规则} 干净+{N}
 ⚠️ {规则} 违反
-🔄 {规则} 复发——修订建议:{行动}
+🔄 {规则} 复发
 
 ⚡ 进化:
 全局→ {规则建议}
 项目→ {规则建议}
+
+📊 技能调用:
+| {技能名} | {N}次 | token ~{估算} | {效果}
 ```
+
+---
+
+## Skill Analytics / 技能调用统计 🆕
+
+### Token 数据来源
+
+| 优先级 | 来源 | 精度 |
+|:--:|------|:--:|
+| 1 | ZCode 上下文窗口使用率（输入框下方统计） | 精确 |
+| 2 | 字符估算（中文 ~1.5 字符/token，英文 ~4 字符/token） | 估算 `~` |
+| 3 | 无数据 → 仅显示调用次数，token 列留空 | - |
+
+### 效果标记
+
+| 标记 | 含义 | 示例 |
+|:--:|------|------|
+| ✅ | 节省 token | summarize 压缩上下文 |
+| ⚠️ | 消耗 token | skills-audit 完整审计 |
+| ➡️ | 中性 | 工具性调用 |
 
 ---
 
@@ -175,14 +244,22 @@ cd ~/.agent-skills/summarize && git pull
 |------|---------|------|
 | 自定义技能/命令注入 | ✅ 必需 | 用于注入触发方式 |
 | 文件系统读写 | ✅ 必需 | 存储收割数据和规则文件 |
-| 会话历史访问 | ✅ 必需 | 模块1/2/3都需要读取当前会话 |
-| 工具调用统计 API | 🟡 可选 | 模块3需要检测工具调用次数 |
+| 会话历史访问 | ✅ 必需 | 模块1/2/3/4都需要读取当前会话 |
+| 上下文使用率数据 | 🟡 可选 | 模块4 token统计；无数据时自动降级为字符估算 |
 
 如果平台不支持某些能力，对应模块会自动降级。
 
 ---
 
 ## Changelog / 变更日志
+
+### v5.2.0 (2026-06-21) — 输出精炼 + 技能统计 + 归档单文件化
+
+- 🎯 **输出精炼规则** — 每个模块硬上限（文件≤8、决策≤5、错误≤5），超限自动折叠到归档
+- 📊 **新模块4: 技能调用统计** — 追踪技能调用次数、token 估算（从ZCode上下文统计或字符估算）、效果评估（✅节省/⚠️消耗/➡️中性）
+- 📦 **归档单文件化** — `harvests/{project}/{session-id}.md` 每次总结覆盖更新（非追加），带时间戳，避免数据重复
+- 📈 **`总结 统计` 增强** — 新增技能调用汇总行
+- 🔧 **_self-stats.md 增强** — 新增技能调用统计、输出精炼统计字段
 
 ### v5.1.0 (2026-06-20) — 触发词锁定版
 

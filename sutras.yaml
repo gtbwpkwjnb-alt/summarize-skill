@@ -1,7 +1,7 @@
 # sutras.yaml — summarize skill metadata & configuration
 
 name: summarize
-version: "5.1.0"
+version: "5.2.0"
 description: |
   总结/summarize → 会话精炼·进度·自进化
   Summarize → session condense, progress tracking, error self-evolve.
@@ -37,6 +37,8 @@ distribution:
     - zcode
     - claude-code
     - cursor
+    - token-tracking
+    - skill-analytics
   category: developer-tools
   github:
     owner: gtbwpkwjnb-alt
