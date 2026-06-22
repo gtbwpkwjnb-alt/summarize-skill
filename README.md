@@ -1,10 +1,10 @@
-# /总结 v5.3.1 — 精炼 · 进度 · 自进化 · 技能统计 · 可逆 · 跨Agent（多平台通用）
+# /总结 v5.3.2 — 精炼 · 进度 · 自进化 · 技能统计 · 可逆 · 跨Agent（多平台通用）
 
 > **Condense · Progress · Self-Evolve · Analytics** — 任务开发超过1天，扫一眼就了解会话全貌。
 > Essential for 1+ day dev tasks. One glance tells you everything.
 > **跨平台**: ZCode · Claude Code · Codex · Cursor · Windsurf
 
-[![Version](https://img.shields.io/badge/version-5.3.1-blue)](VERSION)
+[![Version](https://img.shields.io/badge/version-5.3.2-blue)](VERSION)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-ZCode%20%7C%20Claude%20Code%20%7C%20Codex%20%7C%20Cursor%20%7C%20Windsurf-lightgrey)]()
 
@@ -250,6 +250,16 @@ cd ~/.agent-skills/summarize && git pull
 ---
 
 ## Changelog / 变更日志
+
+### v5.3.2 (2026-06-22) — 正文精炼·体检优化
+
+- 🏷️ **描述修正** — "自动迭代"→"错误进化"，与模块3机制对齐
+- 📋 **触发表合并** — 触发方式+产出为空合并为一张"触发行为矩阵"
+- 🧹 **去冗余** — 首次初始化并入归档模型，跨Agent发现并入更新策略，模块4双格式块合并
+- 🔧 **漏洞修复** — 模块3重试阈值≥2对齐P0-换路，5维分类增加规则ID映射列
+- ⏱️ **可落地判定** — "10轮内"改为"1h内"（基于归档时间戳），不再依赖不可获取的轮次数据
+- 📦 **附录精简** — 错误字段规范移到error-ledger.md，安装/前置/反馈精简为1行引用
+- 📉 **283行→221行**（省62行/22%），description 36字符
 
 ### v5.3.1 (2026-06-22) — 逻辑精炼 + 降级矩阵 + 行为细则
 
