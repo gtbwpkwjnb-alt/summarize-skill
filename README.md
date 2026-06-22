@@ -1,10 +1,10 @@
-# /总结 v5.3 — 精炼 · 进度 · 自进化 · 技能统计 · 可逆 · 跨Agent（多平台通用）
+# /总结 v5.3.1 — 精炼 · 进度 · 自进化 · 技能统计 · 可逆 · 跨Agent（多平台通用）
 
 > **Condense · Progress · Self-Evolve · Analytics** — 任务开发超过1天，扫一眼就了解会话全貌。
 > Essential for 1+ day dev tasks. One glance tells you everything.
 > **跨平台**: ZCode · Claude Code · Codex · Cursor · Windsurf
 
-[![Version](https://img.shields.io/badge/version-5.3.0-blue)](VERSION)
+[![Version](https://img.shields.io/badge/version-5.3.1-blue)](VERSION)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-ZCode%20%7C%20Claude%20Code%20%7C%20Codex%20%7C%20Cursor%20%7C%20Windsurf-lightgrey)]()
 
@@ -250,6 +250,17 @@ cd ~/.agent-skills/summarize && git pull
 ---
 
 ## Changelog / 变更日志
+
+### v5.3.1 (2026-06-22) — 逻辑精炼 + 降级矩阵 + 行为细则
+
+- 🔧 **逻辑链路重组** — 平台前置条件移到安装方式之前，错误分流规则移到模块3，消除结构跳跃
+- 🎯 **模块3检测细化** — 区分"工具报错"和"用户纠正"，防止误分类；增加 AGENTS.md 缺失时的降级说明
+- 🤝 **跨Agent发现机制** — 归档模型增加 Agent 如何定位和读取归档文件的流程说明
+- 📊 **输出精炼规则补全** — 明确模块2/4无单独上限，超20行时完整折叠优先级（3→1→4→2）
+- 🟢🟡🔴 **压力等级量化** — 模块2增加阈值定义：<50% / 50-80% / >80%
+- 🏷️ **模块4去新增标记** — 移除过时的"（新增）"标记，增加无token数据时的降级示例
+- 📋 **产出为空场景补全** — 增加模块4的空产出场景
+- 🔄 **版本检查降级** — `总结 统计` 的 `latest` 字段离线/被墙时显示`未知`，不阻断
 
 ### v5.3.0 (2026-06-22) — 可逆压缩 + 跨Agent交接 + 代码感知
 
