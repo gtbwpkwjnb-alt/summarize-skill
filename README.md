@@ -1,10 +1,10 @@
-# /总结 v5.2 — 精炼 · 进度 · 自进化 · 技能统计（多平台通用）
+# /总结 v5.3 — 精炼 · 进度 · 自进化 · 技能统计 · 可逆 · 跨Agent（多平台通用）
 
 > **Condense · Progress · Self-Evolve · Analytics** — 任务开发超过1天，扫一眼就了解会话全貌。
 > Essential for 1+ day dev tasks. One glance tells you everything.
 > **跨平台**: ZCode · Claude Code · Codex · Cursor · Windsurf
 
-[![Version](https://img.shields.io/badge/version-5.2.0-blue)](VERSION)
+[![Version](https://img.shields.io/badge/version-5.3.0-blue)](VERSION)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-ZCode%20%7C%20Claude%20Code%20%7C%20Codex%20%7C%20Cursor%20%7C%20Windsurf-lightgrey)]()
 
@@ -116,8 +116,6 @@ summarize/
 ├── SKILL.md                  # 技能主文件 / Main skill definition
 ├── VERSION                   # 版本号 / Version
 ├── README.md                 # 本文件 / This file
-├── references/
-│   └── rules.md              # ⚡ 进化规则
 └── harvests/                 # 运行时数据 / Runtime data
     ├── index.md              # 收割索引
     ├── error-ledger.md       # 全局错误账本
@@ -144,7 +142,7 @@ summarize/
 ```
 📋 {项目} —— {1句总结}
 > {3-5句关键摘要}
-📁 文件({N}): {前8个}, …等{N}个文件 📦
+📁 文件({N}): {前8个}({操作}: {函数/类名}), …等{N}个文件 📦
 
 🔑 关键决策({N}):
 - {前5条}
@@ -252,6 +250,14 @@ cd ~/.agent-skills/summarize && git pull
 ---
 
 ## Changelog / 变更日志
+
+### v5.3.0 (2026-06-22) — 可逆压缩 + 跨Agent交接 + 代码感知
+
+- 🔄 **可逆压缩** — 归档错误列表+关键决策附带原文锚定引用，防止反向理解偏差
+- 🤝 **跨Agent交接** — 归档"压缩上下文"标准化为五段式（目标/状态/决策/技能/产出物），下一个会话 Agent 可直接解析
+- 🌳 **代码AST感知** — 文件清单标注函数/类级修改，支持无git/非代码项目自动降级
+- 📋 **表格优先原则** — 归档数据用表格格式替代JSON代码块，减少token开销
+- 🖼️ **图片降级** — 会话含图片时生成文本描述替代（可选，需平台多模态支持）
 
 ### v5.2.0 (2026-06-21) — 输出精炼 + 技能统计 + 归档单文件化
 
