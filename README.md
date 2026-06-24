@@ -1,20 +1,38 @@
-# /总结 v5.4.0 — 精炼 · 进度 · 自进化 · 技能统计 · 可逆 · 跨Agent · 三级自愈（多平台通用）
+# 🛡️ summarize — Error Immune System for AI Coding Agents
 
-> **Condense · Progress · Self-Evolve · Analytics** — 任务开发超过1天，扫一眼就了解会话全貌。
-> Essential for 1+ day dev tasks. One glance tells you everything.
-> **跨平台**: ZCode · Claude Code · Codex · Cursor · Windsurf
+> **永不重复犯错** — AI 编程助手的错误免疫系统。
+> **Never repeat the same mistake** — Error immune system for AI coding agents.
 
-[![Version](https://img.shields.io/badge/version-5.4.0-blue)](VERSION)
+[![Version](https://img.shields.io/badge/version-5.9.0-blue)](VERSION)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-ZCode%20%7C%20Claude%20Code%20%7C%20Codex%20%7C%20Cursor%20%7C%20Windsurf-lightgrey)]()
 
 ---
 
+## 🧠 What Makes This Different / 独特价值
+
+**Not just another "summarize" tool.** This is a complete **error immune system** for AI coding agents:
+
+| What others do | What THIS does |
+|---------------|----------------|
+| 📝 Summarize conversation | 🛡️ **Harvest errors** → classify → store in 3-tier memory |
+| ❌ Forget after session | 🧬 **Self-evolve** — generates prevention rules, tracks adoption |
+| 🔁 Repeat same mistakes | ⚡ **Convergence alerts** — warns when error types spike |
+| 📄 Flat log file | 🔥🔶🔵 **3-tier auto-tiering** — hot/warm/cold with Git versioning |
+
+**Trigger**: `总结` or `summarize` (standalone word only, unchanged)
+
+### Why "Immune System"?
+
+> Biological immune system: detects pathogen → classifies → remembers → responds faster next time.
+>
+> **This skill**: detects agent error → 5-dimension classification → 3-tier storage → multi-signal retrieval → auto-evolves prevention rules.
+
 ## Overview / 概述
 
-**EN**: A multi-platform agent skill that condenses long sessions into a glanceable summary — progress, key decisions, file changes, error-driven self-evolution, and skill call analytics. Triggered ONLY by standalone `总结` or `summarize` (not in a sentence, no auto-reminder). Designed for multi-day development sessions. Works across ZCode, Claude Code, Codex, Cursor, and Windsurf.
+**EN**: An error immune system for AI coding agents (Claude Code / Codex / Cursor / ZCode / Windsurf). Automatically harvests errors → 5-dimension classification → multi-signal retrieval → self-evolving prevention rules → adoption tracking → convergence alerts. Also condenses long sessions into glanceable summaries. Triggered ONLY by standalone `summarize` (not in a sentence, no auto-reminder).
 
-**CN**: 跨平台 AI 编程助手技能，精炼长对话为一眼可读的摘要——进度、关键决策、文件变更、错误驱动的自进化、技能调用统计。**仅**独立词`总结`或`summarize`触发（句中不触发，无自动提醒）。专为超1天任务开发设计。支持 ZCode / Claude Code / Codex / Cursor / Windsurf。
+**CN**: AI 编程助手的错误免疫系统。自动收割每次错误 → 5维分类 → 多信号检索 → 生成预防规则 → 追踪遵守 → 收敛预警。同时精炼长对话为一眼可读的摘要。**仅**独立词`总结`触发（句中不触发）。
 
 ### Core Capabilities / 核心能力
 
