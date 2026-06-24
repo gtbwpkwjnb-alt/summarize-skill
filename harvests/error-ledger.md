@@ -53,6 +53,8 @@
 | Harness状态不同步 | 1 | ENVR | 06-18 | 06-18 | 0 | P1-harness状态 | ❌ | ZCode | 🆕 |
 | token暴涨归因误判 | 1 | ASSU | 06-22 | 06-22 | 0 | P0-验证后引用 | ❌ | ZCode | 🆕 |
 | 长会话context累积未治理 | 1 | KNOW | 06-22 | 06-22 | 0 | P0-长会话压缩 | 🔄 | ZCode | 🆕 |
+| 研究未调用 agent-reach | 1 | TOOL | 06-24 | 06-24 | 0 | P0-技能路由 | ❌ | learn | 🆕 |
+| DeepSeek模型名大小写敏感 | 1 | ASSU | 06-24 | 06-24 | 0 | P0-验证后引用 | ❌ | ZCodeProject | 🆕 |
 
 ---
 
