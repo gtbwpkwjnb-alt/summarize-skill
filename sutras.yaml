@@ -1,10 +1,10 @@
 # sutras.yaml — summarize skill metadata & configuration
 
 name: summarize
-version: "5.3.2"
+version: "5.4.0"
 description: |
-  总结/summarize → 会话精炼·进度·自进化·可逆压缩·跨Agent交接
-  Summarize → session condense, progress tracking, error self-evolve, reversible compression, cross-agent handoff.
+  总结/summarize → 会话精炼·进度·自进化·可逆压缩·跨Agent交接·三级自愈
+  Summarize → session condense, progress tracking, error self-evolve, reversible compression, cross-agent handoff, 3-tier self-healing.
 
 author: ZCode (https://github.com/gtbwpkwjnb-alt)
 license: MIT
@@ -41,6 +41,8 @@ distribution:
     - reversible-compression
     - cross-agent
     - ast-aware
+    - 3-tier-self-healing
+    - git-versioned
   category: developer-tools
   github:
     owner: gtbwpkwjnb-alt

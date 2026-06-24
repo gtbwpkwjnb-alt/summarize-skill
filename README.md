@@ -1,10 +1,10 @@
-# /总结 v5.3.2 — 精炼 · 进度 · 自进化 · 技能统计 · 可逆 · 跨Agent（多平台通用）
+# /总结 v5.4.0 — 精炼 · 进度 · 自进化 · 技能统计 · 可逆 · 跨Agent · 三级自愈（多平台通用）
 
 > **Condense · Progress · Self-Evolve · Analytics** — 任务开发超过1天，扫一眼就了解会话全貌。
 > Essential for 1+ day dev tasks. One glance tells you everything.
 > **跨平台**: ZCode · Claude Code · Codex · Cursor · Windsurf
 
-[![Version](https://img.shields.io/badge/version-5.3.2-blue)](VERSION)
+[![Version](https://img.shields.io/badge/version-5.4.0-blue)](VERSION)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-ZCode%20%7C%20Claude%20Code%20%7C%20Codex%20%7C%20Cursor%20%7C%20Windsurf-lightgrey)]()
 
@@ -250,6 +250,16 @@ cd ~/.agent-skills/summarize && git pull
 ---
 
 ## Changelog / 变更日志
+
+### v5.4.0 (2026-06-22) — 三级自愈 + Git版本化 + 块大小限制
+
+- 🔥🔶🔵 **三级自愈架构** — 热区(AGENTS.md≤5)/温区(errors.md≤30)/冷区(error-ledger.md≤100)，超限自动降级归档
+- 🔍 **温区语义检索** — 每次总结前检索温/冷区相似错误，命中则累计不新增
+- ⚡ **冲突检测** — 新规则写入前比对热区已有规则，重叠/矛盾时输出合并建议
+- ✏️ **自编辑块** — 直接输出可追加至 AGENTS.md 的完整行（非建议），用户一次确认即生效
+- 📦 **Git版本化** — harvests/ + AGENTS.md 规则变更自动 commit，支持回溯
+- 📏 **块大小上限** — 热≤5/温≤30/冷≤100，超限按 clean 天数降级到下一层
+- 🧠 **自检表升级** — 规则有效性 ✅/⚠️/❌ + 月度违规趋势 + ↕️ 升降级日志
 
 ### v5.3.2 (2026-06-22) — 正文精炼·体检优化
 
