@@ -1,10 +1,10 @@
 # summarize skill — multi-platform one-line installer (Windows PowerShell)
-# iwr https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-skill/master/install.ps1 | iex
+# iwr https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-error-skill/master/install.ps1 | iex
 
 $ErrorActionPreference = "Stop"
 
-$RepoSSH   = "git@github.com:gtbwpkwjnb-alt/summarize-skill.git"
-$RepoHTTPS = "https://github.com/gtbwpkwjnb-alt/summarize-skill.git"
+$RepoSSH   = "git@github.com:gtbwpkwjnb-alt/summarize-error-skill.git"
+$RepoHTTPS = "https://github.com/gtbwpkwjnb-alt/summarize-error-skill.git"
 
 # --- Platform auto-detect ---
 function Get-InstallDir {
@@ -63,4 +63,4 @@ Write-Host "   Trigger: 总结 / summarize"
 Write-Host ""
 Write-Host "📊 Manage:"
 Write-Host "   Update:  cd $InstallDir; git pull"
-Write-Host "   Issues:  https://github.com/gtbwpkwjnb-alt/summarize-skill/issues"
+Write-Host "   Issues:  https://github.com/gtbwpkwjnb-alt/summarize-error-skill/issues"

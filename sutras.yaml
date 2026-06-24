@@ -8,7 +8,7 @@ description: |
 
 author: ZCode (https://github.com/gtbwpkwjnb-alt)
 license: MIT
-repository: https://github.com/gtbwpkwjnb-alt/summarize-skill
+repository: https://github.com/gtbwpkwjnb-alt/summarize-error-skill
 
 compatibility:
   platforms: [zcode, claude-code, cursor, codex, windsurf]
@@ -50,7 +50,7 @@ distribution:
   category: developer-tools
   github:
     owner: gtbwpkwjnb-alt
-    repo: summarize-skill
+    repo: summarize-error-skill
   install:
-    bash: "curl -sL https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-skill/master/install.sh | bash"
-    powershell: "iwr https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-skill/master/install.ps1 | iex"
+    bash: "curl -sL https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-error-skill/master/install.sh | bash"
+    powershell: "iwr https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-error-skill/master/install.ps1 | iex"

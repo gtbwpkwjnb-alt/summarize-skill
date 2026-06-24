@@ -214,13 +214,13 @@ summarize/
 ### 一键安装（全平台通用，自动检测目标平台）
 
 ```bash
-curl -sL https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-skill/master/install.sh | bash
+curl -sL https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-error-skill/master/install.sh | bash
 ```
 
 Windows PowerShell:
 
 ```powershell
-iwr https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-skill/master/install.ps1 | iex
+iwr https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-error-skill/master/install.ps1 | iex
 ```
 
 安装脚本会自动检测当前平台（ZCode / Claude Code / Cursor / Codex / Windsurf）并安装到对应目录。如果检测不到，会回退到 `~/.agent-skills/summarize`。
@@ -229,19 +229,19 @@ iwr https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-skill/master/inst
 
 ```bash
 # ZCode
-git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.zcode/skills/summarize
+git clone git@github.com:gtbwpkwjnb-alt/summarize-error-skill.git ~/.zcode/skills/summarize
 
 # Claude Code
-git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.claude/skills/summarize
+git clone git@github.com:gtbwpkwjnb-alt/summarize-error-skill.git ~/.claude/skills/summarize
 
 # Cursor
-git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.cursor/agent-skills/summarize
+git clone git@github.com:gtbwpkwjnb-alt/summarize-error-skill.git ~/.cursor/agent-skills/summarize
 
 # Codex
-git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.codex/skills/summarize
+git clone git@github.com:gtbwpkwjnb-alt/summarize-error-skill.git ~/.codex/skills/summarize
 
 # Windsurf
-git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.windsurf/skills/summarize
+git clone git@github.com:gtbwpkwjnb-alt/summarize-error-skill.git ~/.windsurf/skills/summarize
 ```
 
 ### 更新
@@ -362,7 +362,7 @@ cd ~/.agent-skills/summarize && git pull
 
 ## 反馈 / Feedback
 
-🐛 [GitHub Issues](https://github.com/gtbwpkwjnb-alt/summarize-skill/issues/new)
+🐛 [GitHub Issues](https://github.com/gtbwpkwjnb-alt/summarize-error-skill/issues/new)
 
 ---
 

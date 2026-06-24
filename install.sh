@@ -1,11 +1,11 @@
 #!/bin/bash
 # summarize skill — multi-platform one-line installer
-# curl -sL https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-skill/master/install.sh | bash
+# curl -sL https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-error-skill/master/install.sh | bash
 
 set -e
 
-REPO_SSH="git@github.com:gtbwpkwjnb-alt/summarize-skill.git"
-REPO_HTTPS="https://github.com/gtbwpkwjnb-alt/summarize-skill.git"
+REPO_SSH="git@github.com:gtbwpkwjnb-alt/summarize-error-skill.git"
+REPO_HTTPS="https://github.com/gtbwpkwjnb-alt/summarize-error-skill.git"
 
 # --- Platform auto-detect ---
 detect_platform() {
@@ -61,4 +61,4 @@ echo "   Trigger: 总结 / summarize"
 echo ""
 echo "📊 Manage:"
 echo "   Update:  cd $INSTALL_DIR && git pull"
-echo "   Issues:  https://github.com/gtbwpkwjnb-alt/summarize-skill/issues"
+echo "   Issues:  https://github.com/gtbwpkwjnb-alt/summarize-error-skill/issues"
