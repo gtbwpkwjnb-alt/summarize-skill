@@ -5,7 +5,7 @@ description: 总结 → 错误收割·自进化·可逆压缩 | Summarize → er
 user-invocable: true
 ---
 
-# 总结 v5.9.0 — 🛡️ Error Immune System: 错误免疫系统 · 精炼 · 进度 · 自进化 · 可逆 · 跨Agent（多平台通用）
+# 总结 v6.1 — 🛡️ Error Immune System: 错误免疫系统 · 精炼 · 进度 · 自进化 · 可逆 · 跨Agent（多平台通用）
 
 > **定位**: 🛡️ AI 编程助手的错误免疫系统 — 自动收割错误→多维分类→自进化规则→收敛预警。
 > **设计目标**: 任务开发>1天时，让你扫一眼就了解会话全貌。
