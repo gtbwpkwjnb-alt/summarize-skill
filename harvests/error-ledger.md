@@ -56,6 +56,10 @@
 | 长会话context累积未治理 | 1 | KNOW | — | 06-22 | 06-22 | 0 | P0-长会话压缩 | 🔄 | ZCode | 🆕 |
 | 研究未调用 agent-reach | 1 | TOOL | TOOL:WebFetch | 06-24 | 06-24 | 0 | P0-技能路由 | ❌ | learn | 🆕 |
 | DeepSeek模型名大小写敏感 | 1 | ASSU | — | 06-24 | 06-24 | 0 | P0-验证后引用 | ❌ | ZCodeProject | 🆕 |
+| Entity Linking 实现后 error-ledger.md 未同步 | 1 | PROC | TOOL:Edit, FILE:.md | 06-26 | 06-26 | 0 | P0-契约波及清单 | ❌ | summarize | 🆕 |
+| _self-stats.md 版本滞后4个里程碑 | 1 | PROC | FILE:_self-stats.md | 06-26 | 06-26 | 0 | P0-契约波及清单 | ❌ | summarize | 🆕 |
+| Headroom Rust core 缺失降级为 python_only | 3 | ENVR | TOOL:Headroom SIG:rust_core_missing | 06-21 | 06-21 | 5 | - | ❌ | system | ⚠️⚠️⚠️ |
+| Headroom 代理 0 token 节省 | 2 | ENVR | TOOL:Headroom FILE:proxy_savings.json | 06-21 | 06-21 | 5 | - | ❌ | system | ⚠️ |
 
 ---
 
@@ -81,6 +85,7 @@
 | `P0-SSH优先` | 跳过GitHub搜索 | 06-17 | 5 | ➡️ |
 | `P1-harness状态` | Harness状态不同步 | 06-18 | 4 | ✅ 新规则 |
 | `P0-长会话压缩` | 长会话context累积 | 06-22 | 0 | 🆕 待验证 |
+| `P0-契约波及清单` | error-ledger.md未同步/_self-stats滞后 | 06-26 | 0 | 🆕 新规则 |
 
 ---
 
@@ -88,8 +93,8 @@
 
 | 分类 | 错误数 | 占比 |
 |------|:-----:|:--:|
-| PROC 流程违规 | 4 | 31% |
-| ENVR 环境问题 | 4 | 31% |
-| ASSU 假设错误 | 2 | 15% |
-| TOOL 工具误用 | 2 | 15% |
-| KNOW 知识盲区 | 1 | 8% |
+| ENVR 环境问题 | 6 | 32% |
+| PROC 流程违规 | 6 | 32% |
+| ASSU 假设错误 | 2 | 10% |
+| TOOL 工具误用 | 2 | 10% |
+| KNOW 知识盲区 | 1 | 5% |

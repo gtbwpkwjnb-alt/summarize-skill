@@ -1,7 +1,7 @@
 # sutras.yaml — summarize skill metadata & configuration
 
 name: summarize
-version: "5.9.0"
+version: "6.4.0"
 description: |
   🛡️ 错误免疫系统: 自动收割错误→5维分类→多信号检索→规则自进化→采纳追踪→收敛预警
   Error immune system: auto-harvest errors → 5D classification → multi-signal retrieval → self-evolving rules → adoption tracking → convergence alerts.
