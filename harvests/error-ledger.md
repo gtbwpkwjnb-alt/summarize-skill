@@ -60,7 +60,7 @@
 | _self-stats.md 版本滞后4个里程碑 | 1 | PROC | FILE:_self-stats.md | 06-26 | 06-26 | 0 | P0-契约波及清单 | ❌ | summarize | 🆕 |
 | Headroom Rust core 缺失降级为 python_only | 3 | ENVR | TOOL:Headroom SIG:rust_core_missing | 06-21 | 06-21 | 5 | - | ❌ | system | ⚠️⚠️⚠️ |
 | Headroom 代理 0 token 节省 | 2 | ENVR | TOOL:Headroom FILE:proxy_savings.json | 06-21 | 06-21 | 5 | - | ❌ | system | ⚠️ |
-
+	
 ---
 
 ## 高频警告区（3+ 次）
