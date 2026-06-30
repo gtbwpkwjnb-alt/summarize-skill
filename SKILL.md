@@ -4,10 +4,10 @@ description: Compresses long AI coding sessions into glanceable summaries with p
 license: MIT
 compatibility: ZCode, CodeBuddy, Claude Code, Codex, Reasonix
 metadata:
-  version: "6.6.2"
+  version: "6.6.3"
 ---
 
-# session-summarize v6.6.2 — 会话精炼·进度追踪·错误收割·双轨自进化·分层写入·跨平台适配
+# session-summarize v6.6.3 — 会话精炼·进度追踪·错误收割·双轨自进化·分层写入·跨平台适配
 
 > **定位**：AI 编程助手的错误免疫系统 + 会话压缩引擎。自动收割错误 → 5维分类 → 分层记忆写入 → 生成预防规则 → 追踪遵守 → 收敛预警。同时精炼长对话为结构化进度报告。
 

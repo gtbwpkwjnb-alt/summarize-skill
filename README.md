@@ -3,7 +3,7 @@
 > **永不重复犯错** — AI 编程助手的错误免疫系统。
 > **Never repeat the same mistake** — Error immune system for AI coding agents.
 
-[![Version](https://img.shields.io/badge/version-6.6.2-blue)](VERSION)
+[![Version](https://img.shields.io/badge/version-6.6.3-blue)](VERSION)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-ZCode%20%7C%20CodeBuddy%20%7C%20Claude%20Code%20%7C%20Codex%20%7C%20Reasonix-lightgrey)]()
 

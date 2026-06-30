@@ -1,5 +1,10 @@
 # Changelog — summarize
 
+## v6.6.3 (2026-06-30)
+
+- 🐛 修复仓库名：`summarize-error-skill` → `summarize-skill`（6个文件 + git remote）
+- 🚀 推送 GitHub + 发布 ClawHub 同步
+
 ## v6.6.2 (2026-06-28)
 
 - 🌐 跨平台适配：5平台自动检测 (ZCode/CodeBuddy/Claude Code/Codex/Reasonix)
