@@ -595,7 +595,7 @@ summarize/
 
 ## 反馈
 
-🐛 [GitHub Issues](https://github.com/gtbwpkwjnb-alt/summarize-error-skill/issues/new)
+🐛 [GitHub Issues](https://github.com/gtbwpkwjnb-alt/summarize-skill/issues/new)
 
 ---
 

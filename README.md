@@ -54,13 +54,13 @@
 ### 一键安装（全平台通用，自动检测目标平台）
 
 ```bash
-curl -sL https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-error-skill/master/scripts/install.sh | bash
+curl -sL https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-skill/master/scripts/install.sh | bash
 ```
 
 Windows PowerShell:
 
 ```powershell
-iwr https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-error-skill/master/scripts/install.ps1 | iex
+iwr https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-skill/master/scripts/install.ps1 | iex
 ```
 
 安装脚本会自动检测当前平台（ZCode / CodeBuddy / Claude Code / Codex / Reasonix）并安装到对应目录。如果检测不到，会回退到 `~/.agent-skills/summarize`。
@@ -69,19 +69,19 @@ iwr https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-error-skill/maste
 
 ```bash
 # ZCode
-git clone git@github.com:gtbwpkwjnb-alt/summarize-error-skill.git ~/.agents/skills/summarize
+git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.agents/skills/summarize
 
 # CodeBuddy
-git clone git@github.com:gtbwpkwjnb-alt/summarize-error-skill.git ~/.codebuddy/skills/summarize
+git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.codebuddy/skills/summarize
 
 # Claude Code
-git clone git@github.com:gtbwpkwjnb-alt/summarize-error-skill.git ~/.claude/skills/summarize
+git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.claude/skills/summarize
 
 # Codex
-git clone git@github.com:gtbwpkwjnb-alt/summarize-error-skill.git ~/.codex/skills/summarize
+git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.codex/skills/summarize
 
 # Reasonix
-git clone git@github.com:gtbwpkwjnb-alt/summarize-error-skill.git ~/.reasonix/skills/summarize
+git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.reasonix/skills/summarize
 ```
 
 ### 更新
@@ -136,7 +136,7 @@ summarize/
 
 ## 反馈 / Feedback
 
-🐛 [GitHub Issues](https://github.com/gtbwpkwjnb-alt/summarize-error-skill/issues/new)
+🐛 [GitHub Issues](https://github.com/gtbwpkwjnb-alt/summarize-skill/issues/new)
 
 ---
 

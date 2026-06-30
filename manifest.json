@@ -8,5 +8,5 @@
   "triggers": ["总结", "summarize"],
   "tags": ["会话管理", "总结", "进度追踪", "错误收割", "记忆管理", "session", "summary", "error-harvest", "memory"],
   "license": "MIT",
-  "repository": "https://github.com/gtbwpkwjnb-alt/summarize-error-skill"
+  "repository": "https://github.com/gtbwpkwjnb-alt/summarize-skill"
 }
