@@ -18,7 +18,7 @@
 ┌─ 📋 ZCodeProject — 完成 summarize 技能 WorkBuddy 发布适配
 │
 │  🎯 主任务
-│    发布 summarize v6.6.2 到 WorkBuddy 技能市场
+│    发布 summarize v6.8.0 到 WorkBuddy 技能市场
 │    进度 ████████░░ 80%
 │    > 完成: Frontmatter规范化、正文瘦身到~490行、输出格式重写
 │    > 待办: 最终验证、Git push
@@ -49,7 +49,7 @@
 │  💡 下一步
 │    1. 验证 SKILL.md 行数 ≤500、frontmatter 字段合法
 │    2. 运行 git add + commit + push
-│    > 注意：push 前确认 VERSION 文件已更新为 6.6.2
+│    > 注意：push 前确认 VERSION 文件已更新为 6.8.0
 │  ──────────────────────────────
 │  📊 ~12轮 ｜ 压力 🟢(40%)
 │
@@ -63,7 +63,7 @@
 │
 │  📝 写入(2):
 │    ├ → 全局级(1): ⚡路径: 文档拆分策略
-│    └ → 项目级(1): 🏗️架构: summarize v6.6.2 目录结构
+│    └ → 项目级(1): 🏗️架构: summarize v6.8.0 目录结构
 │
 │  🪖 Headroom: 正常 (12,340 token) ｜ Kompress
 └─────────────────────────────────────────

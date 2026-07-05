@@ -1,7 +1,7 @@
 # sutras.yaml — summarize skill metadata & configuration
 
 name: summarize
-version: "6.4.0"
+version: "7.0.0"
 description: |
   🛡️ 错误免疫系统: 自动收割错误→5维分类→多信号检索→规则自进化→采纳追踪→收敛预警
   Error immune system: auto-harvest errors → 5D classification → multi-signal retrieval → self-evolving rules → adoption tracking → convergence alerts.
@@ -11,7 +11,7 @@ license: MIT
 repository: https://github.com/gtbwpkwjnb-alt/summarize-skill
 
 compatibility:
-  platforms: [zcode, claude-code, cursor, codex, windsurf]
+  platforms: [zcode, codebuddy, claude-code, codex, reasonix]
   note: "安装脚本自动检测目标平台并适配安装路径"
   minVersion: "2.0.0"
 

@@ -1,17 +1,17 @@
-# 🛡️ summarize — Error Immune System for AI Coding Agents
+# 🛡️ summarize v7 — Session Rotation & Error Immune System
 
-> **永不重复犯错** — AI 编程助手的错误免疫系统。
-> **Never repeat the same mistake** — Error immune system for AI coding agents.
+> **永不重复犯错 · 精炼即轮转** — AI 编程助手的错误免疫系统 + 会话轮转引擎。
+> **Never repeat the same mistake. Condense to rotate.** — Error immune system + session rotation engine for AI coding agents.
 
-[![Version](https://img.shields.io/badge/version-6.6.3-blue)](VERSION)
+[![Version](https://img.shields.io/badge/version-7.0.0-blue)](VERSION)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-ZCode%20%7C%20CodeBuddy%20%7C%20Claude%20Code%20%7C%20Codex%20%7C%20Reasonix-lightgrey)]()
+[![Platform](https://img.shields.io/badge/platform-ZCode%20%7C%20CodeBuddy%20%7C%20Claude%20Code%20%7C%20Codex%20%7C%20Reasonix-lightgrey)](README.md)
 
 ---
 
 ## 🧠 What Makes This Different / 独特价值
 
-**Not just another "summarize" tool.** This is a complete **error immune system** for AI coding agents:
+**Not just another "summarize" tool.** This is a **session rotation engine + error immune system** for AI coding agents:
 
 | What others do | What THIS does |
 |---------------|----------------|
@@ -19,6 +19,7 @@
 | ❌ Forget after session | 🧬 **Self-evolve** — generates prevention rules, tracks adoption |
 | 🔁 Repeat same mistakes | ⚡ **Convergence alerts** — warns when error types spike |
 | 📄 Flat log file | 🔥🔶🔵 **3-tier auto-tiering** — hot/warm/cold with Git versioning |
+| 💬 Appends summary to context | 🔄 **v7 Rotation Mode** — report substitutes full history, real token savings |
 
 **Trigger**: `总结` or `summarize` (standalone word only, unchanged)
 
@@ -52,7 +53,7 @@
 
 ## Installation / 安装
 
-> ⚠️ **安全说明**：为防范供应链风险，不再提供 `curl | bash` 一键安装。请使用手动安装+校验。
+> ⚠️ **安全说明**：为防范供应链风险，一键安装前请先下载脚本审查内容，或使用手动安装+校验。
 
 ### 手动安装（推荐）
 
@@ -88,7 +89,7 @@ git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.reasonix/skills/s
 ### 更新
 
 ```bash
-cd ~/.agent-skills/summarize && git pull
+cd ~/.agents/skills/summarize && git pull
 ```
 
 安装后输入`总结`或`summarize`即可触发。
@@ -106,10 +107,11 @@ summarize/
 ├── scripts/
 │   ├── install.ps1             # Windows 安装脚本
 │   └── install.sh              # Linux/macOS 安装脚本
-├── references/
-│   ├── CHANGELOG.md            # 完整变更日志
-│   ├── trigger-examples.md     # 触发规则与输出示例
-│   ├── installation.md         # 安装方式与平台前置条件
+	├── references/
+	│   ├── CHANGELOG.md            # 完整变更日志
+	│   ├── trigger-examples.md     # 触发规则与输出示例
+	│   ├── installation.md         # 安装方式与平台前置条件
+	│   ├── skill-analytics.md      # 技能调用统计
 │   └── ...
 └── harvests/                   # 运行时数据 / Runtime data
     ├── index.md                # 收割索引
