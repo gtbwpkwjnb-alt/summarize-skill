@@ -51,21 +51,21 @@
 
 ## Installation / 安装
 
-### 一键安装（全平台通用，自动检测目标平台）
+> ⚠️ **安全说明**：为防范供应链风险，不再提供 `curl | bash` 一键安装。请使用手动安装+校验。
+
+### 手动安装（推荐）
 
 ```bash
-curl -sL https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-skill/master/scripts/install.sh | bash
+# 克隆仓库
+git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.agents/skills/summarize
+
+# 校验完整性（可选）
+cd ~/.agents/skills/summarize
+git verify-commit HEAD  # 需要 GPG 签名验证
+# 或检查 commit SHA: git log --oneline -1
 ```
 
-Windows PowerShell:
-
-```powershell
-iwr https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-skill/master/scripts/install.ps1 | iex
-```
-
-安装脚本会自动检测当前平台（ZCode / CodeBuddy / Claude Code / Codex / Reasonix）并安装到对应目录。如果检测不到，会回退到 `~/.agent-skills/summarize`。
-
-### 手动安装
+### 平台对应安装路径
 
 ```bash
 # ZCode

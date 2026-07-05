@@ -203,12 +203,14 @@ compatibility: ZCode, CodeBuddy, Claude Code, Codex, Reasonix
 
 | 层级 | 位置 | 定容 | 加载方式 |
 |:----:|------|:---:|:--------:|
-| 🔥**热区** | `$L0_RULES` P0表 | ≤5条 | hook 每次 session 自动注入 |
+| 🔥**热区** | `$L0_RULES` P0表 | ≤5条 | hook 每次 session 自动注入；**写入前需用户确认** |
 | 🔶**温区** | `$HARVEST_BASE/{project}/errors.md` | ≤30条 | 按需检索 |
 | 🔵**冷区** | `$HARVEST_BASE/error-ledger.md` | ≤100条 | 总结时 + 主动检索 |
 | ⬜**归档** | `$HARVEST_BASE/archive/` | 无上限 | 显式恢复，永不自动加载 |
 
 **常驻负担**：仅热区 ~2KB / ~500 token（hook 注入），温冷区按需加载。
+
+**安全约束**：热区（`$L0_RULES`）为 Agent 全局行为规则，修改可能改变 Agent 行为准则。每次写入前必须向用户展示待写入内容并获取明确确认，禁止自动写入。
 
 ---
 
