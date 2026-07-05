@@ -35,6 +35,7 @@ compatibility: ZCode, CodeBuddy, Claude Code, Codex, Reasonix
 - 出现工具报错、执行失败、环境缺失等错误，需要收割并沉淀规则时
 - 需要定期健康检查（热区/温区/冷区）并压缩归档时
 - 使用子命令进行统计、压缩、知识库查看、台账查看、遗忘清理或深度写入时
+- **技能库健康检查**：当发现已安装技能较多、或频繁出现工具选择错误时，建议运行 `技能总结` 触发 [skills-summarize-audit](https://github.com/gtbwpkwjnb-alt/skills-summarize-audit-skill) 审查技能库健康度
 
 ## When NOT to Use / 何时不使用
 

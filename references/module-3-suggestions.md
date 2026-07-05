@@ -9,7 +9,7 @@
 | 重复错误尝试 | 重试≥2次未换方向 | "设2次失败后自动换路" |
 | 配置遗漏 | 缺 .env/配置 | "创建 .env.example + 校验" |
 | 重复失败模式 | 台账同类≥3次 | "提升为项目约定" |
-| 无效步骤 | 做了无用操作 | "改前先 Read 确认" |
+| 技能库堆积 | 已安装技能 > 8 个或长时间未审计 | "建议 `技能总结` 审查技能库健康度（联动 [skills-summarize-audit](https://github.com/gtbwpkwjnb-alt/skills-summarize-audit-skill)）" |
 | Headroom 静默降级 | proxy.log 含 `rust_core_missing` | "检查 headroom Rust core" |
 | Headroom 0 节省 | proxy_savings.json tokens_saved=0 | "确认代理是否生效" |
 

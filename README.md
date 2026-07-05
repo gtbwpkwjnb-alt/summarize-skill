@@ -44,6 +44,7 @@
 | ⚡ **Success Harvest** | 成功经验收割 — 工具效用对比 + 最佳执行路径 + 6类标签 |
 | 📝 **Layered Write** | 分层写入 — 6级决策树 + 待确认队列 + 跨平台路径适配 |
 | 📊 **Skill Analytics** | 技能调用统计 — 调用次数 + token 估算 + 效果评估 |
+| 🔍 **Skill Audit** 🔗 | 技能库健康度审查 — 检测到技能堆积时建议 `技能总结` 一键审计（联动 [skills-summarize-audit](https://github.com/gtbwpkwjnb-alt/skills-summarize-audit-skill)） |
 
 **设计原则**: 一句话能表达清楚绝不用两句。`总结`完整输出≤25行（自动折叠超限内容到归档），`总结 统计`≤6行。
 
