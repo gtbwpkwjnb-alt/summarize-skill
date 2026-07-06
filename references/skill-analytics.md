@@ -14,28 +14,28 @@
 |:--:|------|------|
 | ✅ | 节省 token | summarize 压缩上下文 |
 | ⚠️ | 消耗 token | skills-audit 完整审计 |
-| ➡️ | 中性 | 工具性调用 |
+| — | 中性 | 工具性调用 |
 
 ## 输出格式
 
 ```
-📊 技能调用:
+技能调用:
 | {技能名} | {N}次 | token ~{估算} | {效果}
 ```
 
 ### 示例（有 token 数据）
 
 ```
-📊 技能调用:
+技能调用:
 | summarize | 3次 | token ~1,200 | ✅ 节省
 | skills-audit | 1次 | token ~8,500 | ⚠️ 消耗
-| agent-reach | 2次 | token ~600 | ➡️ 中性
+| agent-reach | 2次 | token ~600 | — 中性
 ```
 
 ### 示例（无 token 数据，降级）
 
 ```
-📊 技能调用:
+技能调用:
 | summarize | 3次 | token — | ✅
 | skills-audit | 1次 | token — | ⚠️
 ```

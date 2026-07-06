@@ -8,16 +8,16 @@
 经验记录
   │
   ├── 涉及具体项目路径/文件/配置/架构？
-  │     └── YES → 项目级 (./.agents/memories/ 或 $PROJ_MEMORY)
+  │ └── YES → 项目级 (./.agents/memories/ 或 $PROJ_MEMORY)
   │
   ├── 涉及通用工具选择策略/Agent行为模式/跨项目通用？
-  │     └── YES → 全局级 ($L0_MEM_DIR 或 $L0_RULES)
+  │ └── YES → 全局级 ($L0_MEM_DIR 或 $L0_RULES)
   │
   ├── 涉及具体用户偏好/个人约定？
-  │     └── YES → 全局级 ($L0_MEM_DIR/user-preferences.md)
+  │ └── YES → 全局级 ($L0_MEM_DIR/user-preferences.md)
   │
   ├── 涉及特定技能执行优化？
-  │     └── YES → 技能级 ($SKILL_BASE/summarize/references/learned/)
+  │ └── YES → 技能级 ($SKILL_BASE/summarize/references/learned/)
   │
   └── 无法确定归属？
         └── → 待确认队列 (_pending.json) → /总结 时询问用户
@@ -43,7 +43,7 @@
 经验同时满足多个层级归属 OR 与已有规则冲突 OR 涉及用户主观偏好且无历史 → 进入 `_pending.json`。
 
 ```
-❓ 待确认({N}):
+待确认({N}):
   [1] "PowerShell 避免 curl，用 Invoke-WebRequest"
       候选: A)全局级 B)项目级 C)跳过
   [2] "Go 版本锁定 1.22" [冲突: go.mod 写 1.21]
@@ -56,13 +56,13 @@
 ## 6.4 输出格式
 
 ```
-📝 写入({N}):
-  ├ → 项目级(2): 🏗️架构: monorepo结构 | 🔧配置: Python 3.12+uv
-  ├ → 全局级(1): ⚡路径: codegraph优先策略
+写入({N}):
+	  ├ → 项目级(2): 架构: monorepo结构 | 配置: Python 3.12+uv
+  ├ → 全局级(1): 路径: codegraph优先策略
   └ → 技能级(0): —
 
-❓ 待确认(1):
+待确认(1):
   [1] "PowerShell 避免 curl" → 候选: A)全局 B)项目 C)跳过
 ```
 
-> 模块6「待确认」行不计入25行上限（追加在末尾）。
+> 模块6「待确认」行不计入 ≤30/≤50/≤80 上限（追加在末尾）。

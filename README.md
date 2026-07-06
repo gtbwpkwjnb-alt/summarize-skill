@@ -1,25 +1,25 @@
-# 🛡️ summarize v7 — Session Rotation & Error Immune System
+# summarize v8.2.1 — Session Rotation & Error Immune System
 
 > **永不重复犯错 · 精炼即轮转** — AI 编程助手的错误免疫系统 + 会话轮转引擎。
 > **Never repeat the same mistake. Condense to rotate.** — Error immune system + session rotation engine for AI coding agents.
 
-[![Version](https://img.shields.io/badge/version-7.0.0-blue)](VERSION)
+[![Version](https://img.shields.io/badge/version-8.2.1-blue)](VERSION)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-ZCode%20%7C%20CodeBuddy%20%7C%20Claude%20Code%20%7C%20Codex%20%7C%20Reasonix-lightgrey)](README.md)
 
 ---
 
-## 🧠 What Makes This Different / 独特价值
+## What Makes This Different / 独特价值
 
 **Not just another "summarize" tool.** This is a **session rotation engine + error immune system** for AI coding agents:
 
 | What others do | What THIS does |
 |---------------|----------------|
-| 📝 Summarize conversation | 🛡️ **Harvest errors** → classify → store in 3-tier memory |
-| ❌ Forget after session | 🧬 **Self-evolve** — generates prevention rules, tracks adoption |
-| 🔁 Repeat same mistakes | ⚡ **Convergence alerts** — warns when error types spike |
-| 📄 Flat log file | 🔥🔶🔵 **3-tier auto-tiering** — hot/warm/cold with Git versioning |
-| 💬 Appends summary to context | 🔄 **v7 Rotation Mode** — report substitutes full history, real token savings |
+| Summarize conversation | **Harvest errors** → classify → store in memory |
+| Forget after session | **Self-evolve** — generates prevention rules, tracks adoption |
+| Repeat same mistakes | **Convergence alerts** — warns when error types spike |
+| Flat log file | **Static storage** — warm/cold/archive as fixed tiers, no auto-tiering |
+| Appends summary to context | **Rotation Mode** — report substitutes full history, real token savings |
 
 **Trigger**: `总结` or `summarize` (standalone word only, unchanged)
 
@@ -27,7 +27,7 @@
 
 > Biological immune system: detects pathogen → classifies → remembers → responds faster next time.
 >
-> **This skill**: detects agent error → 5-dimension classification → 3-tier storage → multi-signal retrieval → auto-evolves prevention rules.
+> **This skill**: detects agent error → 5-dimension classification → single-layer memory → multi-signal retrieval → auto-evolves prevention rules.
 
 ## Overview / 概述
 
@@ -39,15 +39,15 @@
 
 | Feature | 功能 |
 |---------|------|
-| 🗜️ **Session Condense** | 会话精炼 — 主/次任务分层 + ASCII进度条 + 文件清单 + 关键决策 |
-| 📋 **Task Progress** | 任务进度 — 完成/待办/下一步 + 压力等级 |
-| ⚡ **Error Self-Evolve** | 错误自进化 — 5维分类 + 规则回测 + 全局/项目分流 |
-| ⚡ **Success Harvest** | 成功经验收割 — 工具效用对比 + 最佳执行路径 + 6类标签 |
-| 📝 **Layered Write** | 分层写入 — 6级决策树 + 待确认队列 + 跨平台路径适配 |
-| 📊 **Skill Analytics** | 技能调用统计 — 调用次数 + token 估算 + 效果评估 |
-| 🔍 **Skill Audit** 🔗 | 技能库健康度审查 — 检测到技能堆积时建议 `技能总结` 一键审计（联动 [skills-summarize-audit](https://github.com/gtbwpkwjnb-alt/skills-summarize-audit-skill)） |
+| **Session Condense** | 会话精炼 — 主/次任务分层 + ASCII进度条 + 文件清单 + 关键决策 |
+| **Task Progress** | 任务进度 — 完成/待办/下一步 + 压力等级 |
+| **Error Self-Evolve** | 错误自进化 — 5维分类 + 规则回测 + 全局/项目分流 |
+| **Success Harvest** | 成功经验收割 — 工具效用对比 + 最佳执行路径 + 6类标签 |
+| **Layered Write** | 分层写入 — 6级决策树 + 待确认队列 + 跨平台路径适配 |
+| **Skill Analytics** | 技能调用统计 — 调用次数 + token 估算 + 效果评估 |
+| **Skill Audit** | 技能库健康度审查 — 检测到技能堆积时建议 `技能总结` 一键审计（联动 [skills-summarize-audit](https://github.com/gtbwpkwjnb-alt/skills-summarize-audit-skill)） |
 
-**设计原则**: 一句话能表达清楚绝不用两句。`总结`完整输出≤25行（自动折叠超限内容到归档），`总结 统计`≤6行。
+**设计原则**: 一句话能表达清楚绝不用两句。`总结`完整输出按复杂度 ≤30/≤50/≤80行（自动折叠超限内容到归档），`总结 统计`≤6行。
 
 ---
 
@@ -103,20 +103,35 @@ summarize/
 ├── SKILL.md                    # 技能主文件 / Main skill definition
 ├── VERSION                     # 版本号 / Version
 ├── README.md                   # 本文件 / This file
+├── sutras.yaml                 # 元数据 / Metadata
 ├── LICENSE                     # MIT
 ├── scripts/
 │   ├── install.ps1             # Windows 安装脚本
 │   └── install.sh              # Linux/macOS 安装脚本
-	├── references/
-	│   ├── CHANGELOG.md            # 完整变更日志
-	│   ├── trigger-examples.md     # 触发规则与输出示例
-	│   ├── installation.md         # 安装方式与平台前置条件
-	│   ├── skill-analytics.md      # 技能调用统计
-│   └── ...
+├── references/
+│   ├── CHANGELOG.md            # 完整变更日志
+│   ├── trigger-examples.md     # 触发规则与输出示例
+│   ├── installation.md         # 安装方式与平台前置条件
+│   ├── skill-analytics.md      # 技能调用统计
+│   ├── deep-write.md           # 深度写入子命令
+│   ├── archive-model.md        # 归档模型说明
+│   ├── platform-adaptation.md  # 平台适配
+│   ├── module-1-session-condense.md
+│   ├── module-2-progress.md
+│   ├── module-3-suggestions.md
+│   ├── module-4-errors.md
+│   ├── module-5-success.md
+│   ├── module-6-write.md
+│   ├── operations.md
+│   ├── subcommands.md
+│   ├── rules.md
+│   └── learned/
 └── harvests/                   # 运行时数据 / Runtime data
     ├── index.md                # 收割索引
     ├── error-ledger.md         # 全局错误账本
     ├── _self-stats.md          # 自反馈统计
+    ├── _pending.json           # 待确认队列
+    ├── _degradation.json       # 降级状态
     └── {project}/
         ├── errors.md           # 项目错误账本
         └── {session-id}.md     # 会话归档（覆盖更新）
@@ -131,7 +146,7 @@ summarize/
 | 自定义技能/命令注入 | ✅ 必需 | 用于注入触发方式 |
 | 文件系统读写 | ✅ 必需 | 存储收割数据和规则文件 |
 | 会话历史访问 | ✅ 必需 | 模块1/2/3/4都需要读取当前会话 |
-| 上下文使用率数据 | 🟡 可选 | 模块4 token统计；无数据时自动降级为字符估算 |
+| 上下文使用率数据 | 可选 | 模块4 token统计；无数据时自动降级为字符估算 |
 
 如果平台不支持某些能力，对应模块会自动降级。
 
@@ -139,7 +154,7 @@ summarize/
 
 ## 反馈 / Feedback
 
-🐛 [GitHub Issues](https://github.com/gtbwpkwjnb-alt/summarize-skill/issues/new)
+[GitHub Issues](https://github.com/gtbwpkwjnb-alt/summarize-skill/issues/new)
 
 ---
 

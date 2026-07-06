@@ -1,8 +1,8 @@
 {
   "id": "session-summarize",
   "name": "会话总结",
-  "version": "7.0.0",
-  "description": "Session rotation engine + error immune system for AI coding agents. v7 Rotation Mode: produces self-contained rotation reports that substitute full conversation history — real token savings when starting new sessions. Supports 5-dimension error classification, dual-track self-evolution (success + error), 4-tier layered writing (project/global/skill/pending), and 5-level graceful degradation. Triggered only by standalone word '总结' or 'summarize' — not in sentences, no auto-reminder. AI编程助手的会话轮转引擎+错误免疫系统。v7轮转模式：生成自包含的轮转报告替代全量历史——新会话时真实节省token。支持5维错误分类、双轨自进化、4层分级写入、5级降级链。仅独立词'总结'或'summarize'触发。",
+  "version": "8.2.1",
+  "description": "Session rotation engine + error immune system for AI coding agents. v8.2 L0-aligned: completion protocol豁免（output ends with 已总结：instead of 已验证：）；3-tier static storage（温区/冷区/归档，no auto upgrade/downgrade）；decoration emoji purged（only ✅⚠️ retained）；deep-write redesigned as proposal→approval→execute flow aligned with L0 P0-4. v7 base: produces self-contained rotation reports that substitute full conversation history — real token savings when starting new sessions. Supports 5-dimension error classification, dual-track self-evolution (success + error). Triggered only by standalone word '总结' or 'summarize' — not in sentences, no auto-reminder. AI编程助手的会话轮转引擎+错误免疫系统。v8.2 对齐 L0：完成协议豁免+三层静态存储+反装饰+深度写入提案化。生成自包含轮转报告替代全量历史——新会话时真实节省 token。支持 5 维错误分类、双轨自进化。仅独立词'总结'或'summarize'触发。",
   "author": "gtbwpkwjnb-alt",
   "type": "prompt",
   "triggers": ["总结", "summarize"],

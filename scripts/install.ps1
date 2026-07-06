@@ -8,25 +8,25 @@ $RepoHTTPS = "https://github.com/gtbwpkwjnb-alt/summarize-skill.git"
 
 # --- Platform auto-detect ---
 function Get-InstallDir {
-    # ZCode
-    if (Test-Path "$env:USERPROFILE\.zcode\skills") {
-        return "$env:USERPROFILE\.zcode\skills\summarize"
+    # ZCode (默认 ~/.agents/skills/)
+    if (Test-Path "$env:USERPROFILE\.agents\skills") {
+        return "$env:USERPROFILE\.agents\skills\summarize"
+    }
+    # CodeBuddy
+    if (Test-Path "$env:USERPROFILE\.codebuddy\skills") {
+        return "$env:USERPROFILE\.codebuddy\skills\summarize"
     }
     # Claude Code
     if (Test-Path "$env:USERPROFILE\.claude\skills") {
         return "$env:USERPROFILE\.claude\skills\summarize"
     }
-    # Cursor
-    if (Test-Path "$env:USERPROFILE\.cursor\extensions") {
-        return "$env:USERPROFILE\.cursor\agent-skills\summarize"
-    }
     # Codex
     if (Test-Path "$env:USERPROFILE\.codex\skills") {
         return "$env:USERPROFILE\.codex\skills\summarize"
     }
-    # Windsurf
-    if (Test-Path "$env:USERPROFILE\.windsurf\skills") {
-        return "$env:USERPROFILE\.windsurf\skills\summarize"
+    # Reasonix
+    if (Test-Path "$env:USERPROFILE\.reasonix\skills") {
+        return "$env:USERPROFILE\.reasonix\skills\summarize"
     }
     # Fallback
     return "$env:USERPROFILE\.agent-skills\summarize"

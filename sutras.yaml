@@ -1,10 +1,10 @@
 # sutras.yaml — summarize skill metadata & configuration
 
 name: summarize
-version: "7.0.0"
+version: "8.2.1"
 description: |
-  🛡️ 错误免疫系统: 自动收割错误→5维分类→多信号检索→规则自进化→采纳追踪→收敛预警
-  Error immune system: auto-harvest errors → 5D classification → multi-signal retrieval → self-evolving rules → adoption tracking → convergence alerts.
+  当用户发送独立词"总结"或"summarize"时触发（句中不触发）。AI 编程助手的错误免疫系统 + 会话轮转引擎。收割错误、5维分类、单层记忆写入、生成预防规则，并精炼长对话为结构化轮转报告。中英文独立触发。
+  Triggered by standalone "总结"/"summarize" only (not mid-sentence). Error immune system + session rotation engine for AI coding agents. Harvests errors, 5-dimension classification, single-layer memory write, generates prevention rules, condenses long conversations into structured rotation reports.
 
 author: ZCode (https://github.com/gtbwpkwjnb-alt)
 license: MIT
@@ -21,8 +21,10 @@ build:
     - README.md
     - LICENSE
     - VERSION
-    - install.sh
-    - install.ps1
+    - manifest.json
+    - scripts/install.sh
+    - scripts/install.ps1
+    - references/
     - harvests/
 
 distribution:
@@ -35,12 +37,9 @@ distribution:
     - agent-skill
     - zcode
     - claude-code
-    - cursor
     - token-tracking
     - skill-analytics
-    - reversible-compression
     - cross-agent
-    - 3-tier-self-healing
     - git-versioned
     - error-immune
     - error-prevention

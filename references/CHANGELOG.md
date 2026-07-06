@@ -1,5 +1,16 @@
 # Changelog — summarize
 
+## v8.2.0 (2026-07-06) — L0 v8.2 对齐
+
+- 重写 SKILL.md：删除所有装饰性 emoji，对齐 L0 反装饰硬规则
+- 单层化重构：删除 v7.1 的 4 层温冷区自动升降级机制（热区不再自动写入）
+- 存储简化：4 层金字塔 → 3 层静态存储（温区/冷区/归档）
+- 降级链简化：5 级 → 3 级
+- 模块3/4/operations/deep-write/rules/subcommands 全量对齐 v8.2
+- `总结 深度 写入` 重定义：自动写入 L0 → 提案→用户批准→执行（对齐 L0 P0-4）
+- 新增"v8.2 完成协议豁免"段：summarize 输出用 `已总结：` 替代 L0 的"已验证/受阻/需澄清"
+- 原因：v7.1 的 4 层自动升降级对 DeepSeek-v4-flash 过于复杂，每环节都会漏
+
 ## v6.6.3 (2026-06-30)
 
 - 🐛 修复仓库名：`summarize-error-skill` → `summarize-skill`（6个文件 + git remote）

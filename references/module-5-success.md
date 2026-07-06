@@ -18,25 +18,25 @@
 
 | 标签 | 含义 | 示例 | 默认写入层级 |
 |------|------|------|:--:|
-| 🏗️ 架构 | 项目结构/模式发现 | "此项目用 monorepo" | 项目级 |
-| ⚠️ 坑点 | 已避开的陷阱 | "PowerShell 不支持 &&" | 全局级 |
-| 🔧 配置 | 环境/工具配置经验 | "Python 3.12，需用 uv" | 项目级 |
-| 📐 约定 | 项目代码规范 | "错误处理统一用 result pattern" | 项目级 |
-| ⚡ 路径 | 最佳执行路径 | "符号查找优先 codegraph" | 全局级 |
-| 🔬 效用 | 工具效用对比 | "WebFetch vs web_search" | 全局级 |
+| 架构 | 项目结构/模式发现 | "此项目用 monorepo" | 项目级 |
+| 坑点 | 已避开的陷阱 | "PowerShell 不支持 &&" | 全局级 |
+| 配置 | 环境/工具配置经验 | "Python 3.12，需用 uv" | 项目级 |
+| 约定 | 项目代码规范 | "错误处理统一用 result pattern" | 项目级 |
+| 路径 | 最佳执行路径 | "符号查找优先 codegraph" | 全局级 |
+| 效用 | 工具效用对比 | "WebFetch vs web_search" | 全局级 |
 
 ## 5.3 输出格式
 
 ```
-⚡ 成功经验({N}):
-  ├ ⚡ 路径: 符号查找→优先 codegraph(0.8s)，降级 grep(3.2s)
-  ├ 🔬 效用: WebFetch 长文提取 > web_search，后者适合快速搜索
-  └ 🏗️ 架构: 此项目 monorepo，修改需同时更新3个包
+成功经验({N}):
+  ├ 路径: 符号查找→优先 codegraph(0.8s)，降级 grep(3.2s)
+  ├ 效用: WebFetch 长文提取 > web_search，后者适合快速搜索
+	└ 架构: 此项目 monorepo，修改需同时更新3个包
 
-📊 工具效用对比(1):
+工具效用对比(1):
   ├ 任务: 查找 createUser 所有调用点
-  │  路径A: grep "createUser" → 47个结果(含 node_modules) → 3.2s
-  │  路径B: codegraph callers → 3个结果(全精准) → 0.8s
-  │  结论: codegraph 效率高 4x，精度高 15x
+  │ 路径A: grep "createUser" → 47个结果(含 node_modules) → 3.2s
+  │ 路径B: codegraph callers → 3个结果(全精准) → 0.8s
+  │ 结论: codegraph 效率高 4x，精度高 15x
   └ → 写入: 全局级 (工具选择策略)
 ```
