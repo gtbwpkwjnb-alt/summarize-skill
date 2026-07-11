@@ -13,7 +13,7 @@
 | 3 | 2026-06-24 | sess_tools | [sess_tools.md](ZCodeProject/sess_tools.md) | — | 工具链选型+技能审计+v5.9.0完全体回测 |
 | 4 | 2026-06-26 | sess_be284539 | [sess_be284539.md](ZCodeProject/sess_be284539.md) | — | 代码记忆规则优化分析+P0-契约波及清单提议 |
 
-**温区**: [ZCodeProject/errors.md](ZCodeProject/errors.md) — 8 条项目专属错误
+**项目错误账本**: [ZCodeProject/errors.md](ZCodeProject/errors.md) — 8 条项目专属错误
 
 ## ocr-pipeline
 
@@ -21,4 +21,4 @@
 |:--|------|------|------|:------------:|------|
 | 1 | 2026-06-28 | sess_2f42a5c0 | [sess_2f42a5c0.md](ocr-pipeline/sess_2f42a5c0.md) | — | 内证观察笔记OCR→AI结构化→思源导入，含PaddleOCR/DeepSeekAPI/SiYuanAPI管线评测 |
 
-**温区**: [ocr-pipeline/errors.md](ocr-pipeline/errors.md) — 6 条项目专属错误 | 工具评测 | 完整管线
+**项目错误账本**: [ocr-pipeline/errors.md](ocr-pipeline/errors.md) — 6 条项目专属错误 | 工具评测 | 完整管线

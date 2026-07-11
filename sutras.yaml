@@ -1,10 +1,9 @@
 # sutras.yaml — summarize skill metadata & configuration
 
 name: summarize
-version: "8.2.1"
+version: "10.1.0"
 description: |
-  当用户发送独立词"总结"或"summarize"时触发（句中不触发）。AI 编程助手的错误免疫系统 + 会话轮转引擎。收割错误、5维分类、单层记忆写入、生成预防规则，并精炼长对话为结构化轮转报告。中英文独立触发。
-  Triggered by standalone "总结"/"summarize" only (not mid-sentence). Error immune system + session rotation engine for AI coding agents. Harvests errors, 5-dimension classification, single-layer memory write, generates prevention rules, condenses long conversations into structured rotation reports.
+  用户请求“总结”“总结一下”“总结进度”“复盘”“交接”“handoff”或“summarize”时触发。默认生成证据优先、只读的任务状态或交接报告，并在输出末尾提供操作、优化和行为建议；仅“总结 保存”写入当前项目。可选诊断只报告有证据的风险，不自动判罚或写历史。 Evidence-first Codex summary, handoff, and evidence-backed action recommendations; persistence is explicit and project-local.
 
 author: ZCode (https://github.com/gtbwpkwjnb-alt)
 license: MIT
@@ -29,23 +28,15 @@ build:
 
 distribution:
   tags:
-    - diagnostics
     - session-management
-    - self-evolution
     - productivity
     - multi-platform
     - agent-skill
     - zcode
     - claude-code
-    - token-tracking
-    - skill-analytics
-    - cross-agent
-    - git-versioned
-    - error-immune
-    - error-prevention
-    - error-harvesting
-    - agent-memory
-    - convergence-alert
+    - handoff
+    - evidence-first
+    - read-only-default
   category: developer-tools
   github:
     owner: gtbwpkwjnb-alt

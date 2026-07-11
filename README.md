@@ -1,163 +1,32 @@
-# summarize v8.2.1 — Session Rotation & Error Immune System
+# summarize v10.1 — 可信会话交接与行动建议
 
-> **永不重复犯错 · 精炼即轮转** — AI 编程助手的错误免疫系统 + 会话轮转引擎。
-> **Never repeat the same mistake. Condense to rotate.** — Error immune system + session rotation engine for AI coding agents.
+面向 Codex 的任务总结技能。它把当前可见的目标、进度、证据、决策、阻塞和下一步压缩为可继续执行的状态报告，并在末尾给出基于本次证据的操作、优化与行为建议。
 
-[![Version](https://img.shields.io/badge/version-8.2.1-blue)](VERSION)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-ZCode%20%7C%20CodeBuddy%20%7C%20Claude%20Code%20%7C%20Codex%20%7C%20Reasonix-lightgrey)](README.md)
+## 设计原则
 
----
+- 默认只读：普通 `总结` 不创建文件、不修改规则、不写跨会话账本。
+- 证据优先：区分已核验、会话陈述与未核验信息。
+- 交接优先：输出下一步和可复制的继续任务提示，不复述整段对话。
+- 行动闭环：建议以“观察 → 影响 → 操作 → 验证”表达；重复错误优先给出根因与防复发措施。
+- 持久化显式化：只有 `总结 保存` 才写入当前项目的 `.transfers/latest.md`，并回读验证。
+- 诊断可选：`总结 诊断` 只报告当前可见证据支持的风险观察，不进行自动判罚或修复。
 
-## What Makes This Different / 独特价值
+## 使用
 
-**Not just another "summarize" tool.** This is a **session rotation engine + error immune system** for AI coding agents:
+| 命令 | 结果 |
+|---|---|
+| `总结` / `总结一下` / `总结进度` / `复盘` | 简短事实型进度报告，末尾给出行动建议 |
+| `总结 交接` / `handoff` | 可粘贴到新任务的完整交接报告 |
+| `总结 诊断` | 交接报告加证据化流程风险观察 |
+| `总结 保存` | 显式保存交接报告到当前项目 |
+| `总结 恢复` | 读取上次显式保存的报告 |
 
-| What others do | What THIS does |
-|---------------|----------------|
-| Summarize conversation | **Harvest errors** → classify → store in memory |
-| Forget after session | **Self-evolve** — generates prevention rules, tracks adoption |
-| Repeat same mistakes | **Convergence alerts** — warns when error types spike |
-| Flat log file | **Static storage** — warm/cold/archive as fixed tiers, no auto-tiering |
-| Appends summary to context | **Rotation Mode** — report substitutes full history, real token savings |
+旧版 `harvests/` 中的数据会被保留，但 v10 不会自动操作它们。
 
-**Trigger**: `总结` or `summarize` (standalone word only, unchanged)
+## 安装
 
-### Why "Immune System"?
-
-> Biological immune system: detects pathogen → classifies → remembers → responds faster next time.
->
-> **This skill**: detects agent error → 5-dimension classification → single-layer memory → multi-signal retrieval → auto-evolves prevention rules.
-
-## Overview / 概述
-
-**EN**: An error immune system for AI coding agents (ZCode / CodeBuddy / Claude Code / Codex / Reasonix). Automatically harvests errors → 5-dimension classification → multi-signal retrieval → self-evolving prevention rules → adoption tracking → convergence alerts. Also condenses long sessions into structured progress reports with primary/sub-task breakdown, progress bars, and actionable next steps. Triggered ONLY by standalone `summarize` (not in a sentence, no auto-reminder).
-
-**CN**: AI 编程助手的错误免疫系统。自动收割每次错误 → 5维分类 → 多信号检索 → 生成预防规则 → 追踪遵守 → 收敛预警。同时精炼长对话为结构化进度报告，含主/次任务分层、进度条、可执行下一步建议。**仅**独立词`总结`触发（句中不触发）。
-
-### Core Capabilities / 核心能力
-
-| Feature | 功能 |
-|---------|------|
-| **Session Condense** | 会话精炼 — 主/次任务分层 + ASCII进度条 + 文件清单 + 关键决策 |
-| **Task Progress** | 任务进度 — 完成/待办/下一步 + 压力等级 |
-| **Error Self-Evolve** | 错误自进化 — 5维分类 + 规则回测 + 全局/项目分流 |
-| **Success Harvest** | 成功经验收割 — 工具效用对比 + 最佳执行路径 + 6类标签 |
-| **Layered Write** | 分层写入 — 6级决策树 + 待确认队列 + 跨平台路径适配 |
-| **Skill Analytics** | 技能调用统计 — 调用次数 + token 估算 + 效果评估 |
-| **Skill Audit** | 技能库健康度审查 — 检测到技能堆积时建议 `技能总结` 一键审计（联动 [skills-summarize-audit](https://github.com/gtbwpkwjnb-alt/skills-summarize-audit-skill)） |
-
-**设计原则**: 一句话能表达清楚绝不用两句。`总结`完整输出按复杂度 ≤30/≤50/≤80行（自动折叠超限内容到归档），`总结 统计`≤6行。
-
----
-
-## Installation / 安装
-
-> ⚠️ **安全说明**：为防范供应链风险，一键安装前请先下载脚本审查内容，或使用手动安装+校验。
-
-### 手动安装（推荐）
-
-```bash
-# 克隆仓库
-git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.agents/skills/summarize
-
-# 校验完整性（可选）
-cd ~/.agents/skills/summarize
-git verify-commit HEAD  # 需要 GPG 签名验证
-# 或检查 commit SHA: git log --oneline -1
-```
-
-### 平台对应安装路径
-
-```bash
-# ZCode
-git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.agents/skills/summarize
-
-# CodeBuddy
-git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.codebuddy/skills/summarize
-
-# Claude Code
-git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.claude/skills/summarize
-
-# Codex
-git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.codex/skills/summarize
-
-# Reasonix
-git clone git@github.com:gtbwpkwjnb-alt/summarize-skill.git ~/.reasonix/skills/summarize
-```
-
-### 更新
-
-```bash
-cd ~/.agents/skills/summarize && git pull
-```
-
-安装后输入`总结`或`summarize`即可触发。
-
----
-
-## File Structure / 文件结构
-
-```
-summarize/
-├── SKILL.md                    # 技能主文件 / Main skill definition
-├── VERSION                     # 版本号 / Version
-├── README.md                   # 本文件 / This file
-├── sutras.yaml                 # 元数据 / Metadata
-├── LICENSE                     # MIT
-├── scripts/
-│   ├── install.ps1             # Windows 安装脚本
-│   └── install.sh              # Linux/macOS 安装脚本
-├── references/
-│   ├── CHANGELOG.md            # 完整变更日志
-│   ├── trigger-examples.md     # 触发规则与输出示例
-│   ├── installation.md         # 安装方式与平台前置条件
-│   ├── skill-analytics.md      # 技能调用统计
-│   ├── deep-write.md           # 深度写入子命令
-│   ├── archive-model.md        # 归档模型说明
-│   ├── platform-adaptation.md  # 平台适配
-│   ├── module-1-session-condense.md
-│   ├── module-2-progress.md
-│   ├── module-3-suggestions.md
-│   ├── module-4-errors.md
-│   ├── module-5-success.md
-│   ├── module-6-write.md
-│   ├── operations.md
-│   ├── subcommands.md
-│   ├── rules.md
-│   └── learned/
-└── harvests/                   # 运行时数据 / Runtime data
-    ├── index.md                # 收割索引
-    ├── error-ledger.md         # 全局错误账本
-    ├── _self-stats.md          # 自反馈统计
-    ├── _pending.json           # 待确认队列
-    ├── _degradation.json       # 降级状态
-    └── {project}/
-        ├── errors.md           # 项目错误账本
-        └── {session-id}.md     # 会话归档（覆盖更新）
-```
-
----
-
-## Platform Requirements / 平台前置条件
-
-| 能力 | 是否必需 | 说明 |
-|------|---------|------|
-| 自定义技能/命令注入 | ✅ 必需 | 用于注入触发方式 |
-| 文件系统读写 | ✅ 必需 | 存储收割数据和规则文件 |
-| 会话历史访问 | ✅ 必需 | 模块1/2/3/4都需要读取当前会话 |
-| 上下文使用率数据 | 可选 | 模块4 token统计；无数据时自动降级为字符估算 |
-
-如果平台不支持某些能力，对应模块会自动降级。
-
----
-
-## 反馈 / Feedback
-
-[GitHub Issues](https://github.com/gtbwpkwjnb-alt/summarize-skill/issues/new)
-
----
+将本目录放在 Codex 可发现的 skills 路径（通常为 `~/.codex/skills/summarize`），或使用仓库内的安装脚本。安装后按上述表达请求即可。
 
 ## License
 
-MIT — see [LICENSE](LICENSE) file.
+MIT
