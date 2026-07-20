@@ -1,11 +1,11 @@
 {
   "id": "session-summarize",
   "name": "会话总结",
-  "version": "10.2.0",
+  "version": "11.0.0",
   "description": "Evidence-first Codex summaries with separate scan, compact-context, and handoff outputs. Reports preserve verified state, decisions, unknowns, blockers, next actions, and evidence-backed recommendations; persistence remains explicit and project-local.",
   "author": "gtbwpkwjnb-alt",
   "type": "prompt",
-  "triggers": ["总结", "总结一下", "总结进度", "复盘", "总结 精简", "压缩上下文", "compact", "总结 交接", "handoff", "总结 诊断", "总结 保存", "总结 恢复", "summarize", "summarize save"],
+  "triggers": ["总结", "总结一下", "总结进度", "复盘", "总结 精简", "压缩上下文", "compact", "总结 交接", "总结 交接 分层", "handoff", "总结 checkpoint", "总结 诊断", "总结 诊断 历史", "总结 保存", "总结 恢复", "summarize", "summarize save"],
   "tags": ["会话管理", "总结", "进度追踪", "交接", "复盘", "行动建议", "session", "summary", "handoff", "evidence-first", "codex"],
   "license": "MIT",
   "repository": "https://github.com/gtbwpkwjnb-alt/summarize-skill"

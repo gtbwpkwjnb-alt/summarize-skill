@@ -13,7 +13,10 @@ REQUIRED = (
     "agents/openai.yaml",
     "references/operations.md",
     "references/recommendations.md",
+    "references/history-diagnostics.md",
+    "references/layered-handoff.md",
     "scripts/save_handoff.py",
+    "scripts/inspect_handoff.py",
 )
 
 

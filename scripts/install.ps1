@@ -1,5 +1,4 @@
 # summarize skill — multi-platform one-line installer (Windows PowerShell)
-# iwr https://raw.githubusercontent.com/gtbwpkwjnb-alt/summarize-skill/master/install.ps1 | iex
 
 $ErrorActionPreference = "Stop"
 
@@ -42,17 +41,23 @@ if (Test-Path $InstallDir) {
     Write-Host "🔄 Updating to latest version..."
     Push-Location $InstallDir
     try {
-        git pull --rebase 2>$null
-    } catch {
+        git pull --ff-only
+        if ($LASTEXITCODE -ne 0) {
+            throw "git pull --ff-only failed; existing installation was preserved"
+        }
+    } finally {
         Pop-Location
-        Remove-Item -Recurse -Force $InstallDir -ErrorAction SilentlyContinue
-        try { git clone $RepoSSH $InstallDir } catch { git clone $RepoHTTPS $InstallDir }
     }
-    Pop-Location
 } else {
     Write-Host "   Cloning into $InstallDir ..."
     New-Item -ItemType Directory -Force -Path (Split-Path $InstallDir) | Out-Null
-    try { git clone $RepoSSH $InstallDir } catch { git clone $RepoHTTPS $InstallDir }
+    git clone $RepoSSH $InstallDir
+    if ($LASTEXITCODE -ne 0) {
+        git clone $RepoHTTPS $InstallDir
+        if ($LASTEXITCODE -ne 0) {
+            throw "git clone failed"
+        }
+    }
 }
 
 $ver = Get-Content "$InstallDir\VERSION" -Raw
