@@ -1,6 +1,11 @@
 # Build output
 dist/
 
+# Python test/runtime caches
+__pycache__/
+.pytest_cache/
+*.py[cod]
+
 # Session harvest files (runtime data, not part of the skill)
 harvests/*/202[0-9]-*.md
 harvests/*/20[0-9][0-9]-*.md

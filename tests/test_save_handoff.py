@@ -43,7 +43,8 @@ def main() -> None:
         target.with_name("latest.md.lock").unlink()
 
         secret = root / "secret.md"
-        secret.write_text(HEADER + "token: ghp_abcdefghijklmnopqrstuvwxyz123456\n", encoding="utf-8")
+        fake_github_token = "ghp_" + "abcdefghijklmnopqrstuvwxyz123456"
+        secret.write_text(HEADER + f"token: {fake_github_token}\n", encoding="utf-8")
         rejected = run("--input", str(secret), "--check-only")
         assert rejected.returncode == 3, rejected.stderr
         assert "疑似密钥" in rejected.stderr

@@ -1,9 +1,9 @@
 # sutras.yaml — summarize skill metadata & configuration
 
 name: summarize
-version: "10.1.0"
+version: "10.2.0"
 description: |
-  用户请求“总结”“总结一下”“总结进度”“复盘”“交接”“handoff”或“summarize”时触发。默认生成证据优先、只读的任务状态或交接报告，并在输出末尾提供操作、优化和行为建议；仅“总结 保存”写入当前项目。可选诊断只报告有证据的风险，不自动判罚或写历史。 Evidence-first Codex summary, handoff, and evidence-backed action recommendations; persistence is explicit and project-local.
+  用户请求“总结”“总结进度”“复盘”“精简上下文”“compact”“交接”“handoff”或“summarize”时触发。区分快速扫描、当前上下文精简和跨任务交接，保留验证、未知项、阻塞与下一步，并在末尾提供基于证据的建议；仅“总结 保存”写入当前项目。 Evidence-first Codex summaries with separate scan, compact-context, and handoff outputs; persistence is explicit and project-local.
 
 author: ZCode (https://github.com/gtbwpkwjnb-alt)
 license: MIT
@@ -21,8 +21,10 @@ build:
     - LICENSE
     - VERSION
     - manifest.json
+    - agents/
     - scripts/install.sh
     - scripts/install.ps1
+    - scripts/save_handoff.py
     - references/
     - harvests/
 

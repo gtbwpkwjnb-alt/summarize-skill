@@ -10,16 +10,14 @@ REQUIRED = (
     "SKILL.md",
     "manifest.json",
     "sutras.yaml",
-    "references/checklist.md",
-    "references/standards.md",
-    "references/tuning.md",
+    "agents/openai.yaml",
     "references/operations.md",
     "references/recommendations.md",
     "scripts/save_handoff.py",
 )
 
 
-def main() -> None:
+def test_release_resources_are_tracked() -> None:
     if not (ROOT / ".git").exists():
         print("release resource test skipped: no Git metadata")
         return
@@ -32,6 +30,10 @@ def main() -> None:
         )
         assert result.returncode == 0, f"发布缺少受跟踪依赖: {relative}"
     print("summarize release resources are tracked")
+
+
+def main() -> None:
+    test_release_resources_are_tracked()
 
 
 if __name__ == "__main__":
