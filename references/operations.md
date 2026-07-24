@@ -1,4 +1,4 @@
-# summarize — 保存与恢复操作（v11.0）
+# session-summarize — 保存与恢复操作（v1.2）
 
 仅在用户明确要求 `总结 保存` / `summarize save` 时读取并执行本文件。默认总结和诊断均为只读。
 

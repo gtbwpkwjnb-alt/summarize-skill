@@ -40,6 +40,7 @@ def test_task_bound_save_and_inspect() -> None:
     manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
     for trigger in ("复盘", "handoff", "总结 保存", "总结 恢复", "summarize save"):
         assert trigger in manifest["triggers"], f"manifest 缺少触发词: {trigger}"
+    assert manifest["id"] == "session-summarize"
     with tempfile.TemporaryDirectory(prefix="summarize-handoff-") as temporary:
         root = Path(temporary)
         source = root / "report.md"

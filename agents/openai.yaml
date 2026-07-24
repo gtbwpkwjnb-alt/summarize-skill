@@ -1,4 +1,4 @@
 interface:
-  display_name: "Summarize"
-  short_description: "总结·精简·交接 → 状态证据·风险决策·行动建议"
-  default_prompt: "Use $summarize to produce a concise, evidence-backed task summary with the single most important next action."
+  display_name: "Session Summarize"
+  short_description: "会话总结 → 结论·证据·分级问题·下一步·行动建议"
+  default_prompt: "Use $session-summarize to produce a concise, high-density task summary with evidence, P0/P1/P2 issues, and the single most important next action."

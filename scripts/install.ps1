@@ -9,32 +9,38 @@ $RepoHTTPS = "https://github.com/gtbwpkwjnb-alt/summarize-skill.git"
 function Get-InstallDir {
     # ZCode (默认 ~/.agents/skills/)
     if (Test-Path "$env:USERPROFILE\.agents\skills") {
-        return "$env:USERPROFILE\.agents\skills\summarize"
+        return "$env:USERPROFILE\.agents\skills\session-summarize"
     }
     # CodeBuddy
     if (Test-Path "$env:USERPROFILE\.codebuddy\skills") {
-        return "$env:USERPROFILE\.codebuddy\skills\summarize"
+        return "$env:USERPROFILE\.codebuddy\skills\session-summarize"
     }
     # Claude Code
     if (Test-Path "$env:USERPROFILE\.claude\skills") {
-        return "$env:USERPROFILE\.claude\skills\summarize"
+        return "$env:USERPROFILE\.claude\skills\session-summarize"
     }
     # Codex
     if (Test-Path "$env:USERPROFILE\.codex\skills") {
-        return "$env:USERPROFILE\.codex\skills\summarize"
+        return "$env:USERPROFILE\.codex\skills\session-summarize"
     }
     # Reasonix
     if (Test-Path "$env:USERPROFILE\.reasonix\skills") {
-        return "$env:USERPROFILE\.reasonix\skills\summarize"
+        return "$env:USERPROFILE\.reasonix\skills\session-summarize"
     }
     # Fallback
-    return "$env:USERPROFILE\.agent-skills\summarize"
+    return "$env:USERPROFILE\.agent-skills\session-summarize"
 }
 
 $InstallDir = Get-InstallDir
+$LegacyInstallDir = Join-Path (Split-Path $InstallDir -Parent) "summarize"
 
-Write-Host "📦 summarize skill installer"
+Write-Host "📦 Session Summarize installer"
 Write-Host "   Target: $InstallDir"
+
+if (-not (Test-Path $InstallDir) -and (Test-Path $LegacyInstallDir)) {
+    Write-Host "   Migrating legacy install: $LegacyInstallDir"
+    Move-Item -LiteralPath $LegacyInstallDir -Destination $InstallDir
+}
 
 if (Test-Path $InstallDir) {
     Write-Host "   Already installed at $InstallDir"
@@ -64,7 +70,7 @@ $ver = Get-Content "$InstallDir\VERSION" -Raw
 Write-Host ""
 Write-Host "✅ summarize skill installed!  v$ver"
 Write-Host "   Path:    $InstallDir"
-Write-Host "   Trigger: 总结 / summarize"
+Write-Host "   Trigger: 总结 / session-summarize / summarize"
 Write-Host ""
 Write-Host "📊 Manage:"
 Write-Host "   Update:  cd $InstallDir; git pull"

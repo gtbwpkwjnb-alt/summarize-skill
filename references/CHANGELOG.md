@@ -1,4 +1,13 @@
-# Changelog — summarize
+# Changelog — Session Summarize
+
+## v1.2 (2026-07-24) — Session Summarize 高密度输出
+
+- 技能标识统一为 `session-summarize`，保留 `summarize` 作为兼容触发词。
+- 版本统一为 `1.2`，安装目录、可见名称和默认调用提示同步更新。
+- 输出改为结论优先：首屏包含范围、状态、证据覆盖、结论和唯一主动作。
+- 问题按 P0/P1/P2 分类，统一采用“问题—影响—证据—动作”结构。
+- 吸收 `skills-summarize-audit` 的 observed/inferred/unavailable 事实边界，并保留用户确认与估算状态。
+- `## 建议` 固定为最后区段，建议必须绑定证据和可验收对象。
 
 ## v11.0.0 (2026-07-20) — 任务隔离、历史诊断与可选分层交接
 

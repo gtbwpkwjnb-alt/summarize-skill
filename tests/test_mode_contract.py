@@ -11,18 +11,38 @@ RECOMMENDATIONS = (ROOT / "references" / "recommendations.md").read_text(encodin
 
 def test_compact_mode_keeps_non_discardable_state() -> None:
     required = ("目标", "当前状态", "未完成项/阻塞", "验证结果", "UNKNOWN", "唯一下一步")
-    compact_line = next(line for line in SKILL.splitlines() if "精简模式必须保留" in line)
+    compact_line = next(line for line in SKILL.splitlines() if "必须保留：目标、当前状态" in line)
     assert all(item in compact_line for item in required)
 
 
+def test_high_density_report_layout_is_explicit() -> None:
+    assert "先结论、后行动、再证据" in SKILL
+    assert "证据覆盖：observed N / confirmed N / inferred N / estimated N / unavailable N" in SKILL
+    assert all(item in SKILL for item in ("P0 阻塞", "P1 风险", "P2 优化", "问题—影响—证据—动作"))
+    assert "## 建议" in SKILL and "最后保留 `## 建议`" in SKILL
+
+
+def test_skill_identity_and_version_are_aligned() -> None:
+    manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
+    sutras = (ROOT / "sutras.yaml").read_text(encoding="utf-8")
+    interface = (ROOT / "agents" / "openai.yaml").read_text(encoding="utf-8")
+    assert "name: session-summarize" in SKILL
+    assert manifest["id"] == "session-summarize"
+    assert manifest["version"] == "1.2"
+    assert "session-summarize" in manifest["triggers"]
+    assert "name: session-summarize" in sutras
+    assert 'version: "1.2"' in sutras
+    assert 'display_name: "Session Summarize"' in interface
+
+
 def test_first_screen_counts_hidden_parallel_risks() -> None:
-    assert "附加状态" in SKILL
-    assert "阻塞" in SKILL and "UNKNOWN" in SKILL and "未验证" in SKILL
+    assert "证据覆盖：observed N / confirmed N / inferred N / estimated N / unavailable N" in SKILL
+    assert "阻塞" in SKILL and "UNKNOWN" in SKILL and "unavailable" in SKILL
 
 
 def test_evidence_and_unknown_are_structured() -> None:
-    assert "来源：文件/命令/测试" in SKILL
-    assert all(item in SKILL for item in ("原因、影响、验证动作、责任方、解除条件"))
+    assert all(item in SKILL for item in ("observed", "confirmed", "inferred", "estimated", "unavailable"))
+    assert all(item in SKILL for item in ("问题：", "影响：", "证据：", "动作："))
 
 
 def test_recommendations_bind_to_executable_objects() -> None:
@@ -33,7 +53,7 @@ def test_recommendations_bind_to_executable_objects() -> None:
 def test_manifest_and_version_are_aligned() -> None:
     version = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
     manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
-    assert version == "11.0.0"
+    assert version == "1.2"
     assert manifest["version"] == version
 
 

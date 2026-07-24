@@ -32,6 +32,15 @@ def test_release_resources_are_tracked() -> None:
             check=False,
         )
         assert result.returncode == 0, f"发布缺少受跟踪依赖: {relative}"
+    sutras = (ROOT / "sutras.yaml").read_text(encoding="utf-8")
+    assert "    - harvests/" not in sutras
+    tracked_harvests = subprocess.run(
+        ["git", "-C", str(ROOT), "ls-files", "harvests"],
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    assert not tracked_harvests.stdout.strip(), "发布不应跟踪运行时 harvests 数据"
     print("summarize release resources are tracked")
 
 
