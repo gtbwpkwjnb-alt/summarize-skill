@@ -1,6 +1,6 @@
 # Changelog — Session Summarize
 
-## v1.2 (2026-07-24) — Session Summarize 高密度输出
+## v1.2.0 (2026-07-24) — Session Summarize 高密度输出
 
 - 技能标识统一为 `session-summarize`，保留 `summarize` 作为兼容触发词。
 - 版本统一为 `1.2`，安装目录、可见名称和默认调用提示同步更新。

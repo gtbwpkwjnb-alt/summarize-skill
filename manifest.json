@@ -1,7 +1,7 @@
 {
   "id": "session-summarize",
   "name": "Session Summarize",
-  "version": "1.2",
+  "version": "1.2.0",
   "description": "High-density, evidence-backed Codex summaries with conclusion-first layout, P0/P1/P2 issue classification, compact context, handoff outputs, and evidence-bound recommendations; persistence remains explicit and project-local.",
   "author": "gtbwpkwjnb-alt",
   "type": "prompt",

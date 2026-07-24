@@ -28,10 +28,10 @@ def test_skill_identity_and_version_are_aligned() -> None:
     interface = (ROOT / "agents" / "openai.yaml").read_text(encoding="utf-8")
     assert "name: session-summarize" in SKILL
     assert manifest["id"] == "session-summarize"
-    assert manifest["version"] == "1.2"
+    assert manifest["version"] == "1.2.0"
     assert "session-summarize" in manifest["triggers"]
     assert "name: session-summarize" in sutras
-    assert 'version: "1.2"' in sutras
+    assert 'version: "1.2.0"' in sutras
     assert 'display_name: "Session Summarize"' in interface
 
 
@@ -53,7 +53,7 @@ def test_recommendations_bind_to_executable_objects() -> None:
 def test_manifest_and_version_are_aligned() -> None:
     version = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
     manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
-    assert version == "1.2"
+    assert version == "1.2.0"
     assert manifest["version"] == version
 
 

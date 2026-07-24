@@ -1,7 +1,7 @@
 # sutras.yaml — summarize skill metadata & configuration
 
 name: session-summarize
-version: "1.2"
+version: "1.2.0"
 description: |
   用户请求“总结”“总结一下”“总结进度”“复盘”“精简上下文”“compact”“交接”“handoff”“总结 checkpoint”“总结 交接 分层”“总结 诊断 历史”“总结 保存”“总结 恢复”或“session-summarize”时触发；“summarize”保留为兼容入口。采用结论优先、高密度排版和 P0/P1/P2 问题分类，保留证据、未知项、阻塞与下一步，并在末尾提供基于证据的建议；仅“总结 保存”写入当前项目。 Evidence-backed session summaries with conclusion-first layout, compact context, handoff, explicit diagnostics, and bounded recommendations; persistence is explicit and project-local.
 
